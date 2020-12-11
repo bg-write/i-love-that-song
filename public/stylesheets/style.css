@@ -1,9 +1,13 @@
 body {
-	font-family: 'Lucida Grande', Helvetica, Arial, sans-serif;
+	font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
 	background-color: gray;
 	margin: 0;
 }
 
 nav {
 	background-color: white;
+}
+
+#avatarPhoto {
+	border-radius: 50%;
 }
