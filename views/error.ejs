@@ -1,3 +1,17 @@
-<h1><%= message %></h1>
-<h2><%= error.status %></h2>
-<pre><%= error.stack %></pre>
+<%- include('./partials/header') %>
+	<img
+		src="https://thumbs.dreamstime.com/z/new-year-s-eve-office-party-3722865.jpg"
+		alt="error"
+		width="50%"
+	/>
+	<h4>(Working on it.)</h4>
+	<h5>
+		(<a href="https://www.youtube.com/watch?v=r8B-RuJRI2A">In the meantime.</a>)
+	</h5>
+	<h6>
+		(<a href="http://localhost:3000">Or you can go back to the home page.</a>)
+	</h6>
+	<!-- <h1><%= message %></h1> -->
+	<!-- <h2><%= error.status %></h2> -->
+	<% console.log(error.stack) %>
+<%- include('./partials/footer') %>

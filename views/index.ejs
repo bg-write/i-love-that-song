@@ -1,5 +1,11 @@
-<%- include('partials/header') %>
-
-<h1>hello, <%= user ? user.name : "friend" %></h1>
-
-<%- include('partials/footer') %>
+<%- include('./partials/header') %>
+<head>
+	<title><%= title %></title>
+	<link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+<body>
+	<h1>
+		<%= user ? `${user.name}, welcome!` : "You're about to hear something great." %>
+	</h1>
+</body>
+<%- include('./partials/footer') %>
