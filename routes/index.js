@@ -2,7 +2,7 @@ const router = require('express').Router();
 
 router.get('/', function (req, res) {
 	res.render('index', {
-		title: 'I Love That Song',
+		title: 'Home Page',
 		user: req.user ? req.user : null,
 	});
 });
