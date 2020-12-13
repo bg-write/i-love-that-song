@@ -1,10 +1,6 @@
 # I Love That Song
 
-<<<<<<< HEAD
 The app helping writers organize the music they need for research. (In development.)
-=======
-The app helping writers organize the music they need for research.
->>>>>>> ea94e0533ece7b0582eb92160a8aa44f8abcd334
 
 ## Getting Started
 
