@@ -9,16 +9,44 @@
 	</head>
 	<body>
 		<nav>
-			<ul>
-				<% if (user) { %>
-				<li>
-					<a href="/auth/logout">Log Out</a>
-				</li>
-				<% } else { %>
-				<li>
-					<a href="/auth/google">Login with Google</a>
-				</li>
-				<% } %>
-			</ul>
+			<img id="logoPic" src="/images/schroeder.jpg" alt="logo" />
+			<a id="headlineText" href="/">I Love That Song</a>
+			<a id="subheadlineText" href="/"
+				>Organize the music you need to write your next great project.</a
+			>
+			<div id="navbar">
+				<ul>
+					<!-- When user is logged in-->
+					<% if (user) { %>
+					<li class="nav-item">
+						<a class="nav-link" href="/">Find Album</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/">Album Collection</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/users/profile">My Profile</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/">Users</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/">Message Board</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/auth/logout">Log Out</a>
+					</li>
+					<!-- <li class="nav-item">
+						<img id="avatarPhoto" height="30" src="<%= user.avatar %>" alt="" />
+					</li> -->
+					<!-- When user is logged out-->
+					<% } else { %>
+					<li class="nav-item">
+						<a class="nav-link" href="/auth/google">Login with Google</a>
+					</li>
+					<% } %>
+				</ul>
+			</div>
 		</nav>
-<main>
+	</body>
+</html>

@@ -1,0 +1,74 @@
+<%- include('../partials/header') %>
+
+<h3><%= title %></h3>
+
+<div class="card" style="width: 36rem;">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="profileinfo-tab" data-toggle="tab" href="#profileinfo" role="tab" aria-controls="profileinfo" aria-selected="true">My Info</a>
+      </li>
+      <!-- This is the info for the 'update' tab -->
+      <li class="nav-item">
+        <a class="nav-link" id="updateinfo-tab" data-toggle="tab" href="#updateinfo" role="tab" aria-controls="updateinfo" aria-selected="false">Update Info</a>
+      </li>
+      <!-- This is the info for the 'friends' tab -->
+      <li class="nav-item">
+        <a class="nav-link" id="friends-tab" data-toggle="tab" href="#friends" role="tab" aria-controls="friends" aria-selected="false">Friends</a>
+      </li>
+      <!-- This is the info for the 'watchlist' tab -->
+      <li class="nav-item">
+        <a class="nav-link" id="watchlist-tab" data-toggle="tab" href="#watchlist" role="tab" aria-controls="watchlist" aria-selected="false">Watch List</a>
+      </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="profileinfo" role="tabpanel" aria-labelledby="profileinfo-tab">
+        <div class="card-body">
+          <h5 class="card-title">Name: <%= user.name %></h5>
+          <p class="card-text">Alias: <%= user.alias %></p>
+          <p class="card-text">Email: <%= user.email %></p>
+          <p class="card-text">Bio: <%= user.bio %></p>
+        </div>
+      </div>
+      <!-- This is the card for the 'update' tab -->
+      <div class="tab-pane fade" id="updateinfo" role="tabpanel" aria-labelledby="updateinfo-tab">
+        <div class="card-body">
+            <!-- This is where we'll put our 'update' route -->
+            <form action="" method="POST">
+                <div class="form-row">
+                    <div class="col-md-4">
+                        <label for="userAlias">Alias:</label>
+                        <input type="text" id="userAlias" class="form-control" name="alias" value="<%= user.alias %>">
+                    </div><br>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-12">
+                        <label for="avatarUrl">Avatar Image URL:</label>
+                    <input type="text" id="avatarUrl" class="form-control" name="avatar" value="<%= user.avatar %>">
+                  </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-12">
+                        <label for="bio">Bio:</label>
+                    <textarea rows="3" id="bio" class="form-control" name="bio"><%= user.bio %></textarea>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-warning">Update</button>
+              </form>
+        </div>
+      </div>
+      <!-- This is the card for the 'friends' tab -->
+      <div class="tab-pane fade" id="friends" role="tabpanel" aria-labelledby="friends-tab">
+        <div class="card-body">
+        <!-- This is where we'll use a forEach to display friends -->     
+        </div>
+      </div>
+      <!-- This is the card for the 'watchlist' tab -->
+      <div class="tab-pane fade show" id="watchlist" role="tabpanel" aria-labelledby="watchlist-tab">
+        <div class="card-body">
+        <!-- This is where we'll use a forEach to display watchlist items -->
+        </div>
+      </div>
+    </div>
+</div>
+
+<%- include('../partials/footer') %>

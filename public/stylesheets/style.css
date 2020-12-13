@@ -1,19 +1,78 @@
 body {
 	font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
-	background-color: gray;
+	background-color: teal;
+	border: solid;
 	margin: 0;
 }
 
 nav {
-	background-color: white;
+	background-color: aquamarine;
+	border: solid;
 }
 
 /*---- Classes (.) ----*/
+.nav-item {
+	background-color: firebrick;
+	border: solid;
+}
+
+.nav-link {
+	background-color: goldenrod;
+}
 
 /*---- IDs (#) ----*/
+#logoPic {
+	width: 100px;
+	border: solid;
+}
 
-#avatarPhoto {
+#headlineText {
+	/*---- "I Love That Song" ----*/
+	background-color: cadetblue;
+	border: solid;
+}
+
+#subheadlineText {
+	background-color: cadetblue;
+	border: solid;
+}
+
+#navbar {
+	background-color: darkgoldenrod;
+	border: solid;
+}
+
+#navbar ul {
+	padding: 0;
+	margin: 0;
+}
+
+#navbar li {
+	display: inline-block;
+}
+
+/* #avatarPhoto {
 	border-radius: 50%;
+} */
+
+#footer {
+	background-color: honeydew;
+	border: solid;
+}
+
+#copyright {
+	background-color: indianred;
+	border: solid;
+}
+
+#apiCredit {
+	background-color: khaki;
+	border: solid;
+}
+
+#callToAction {
+	background-color: lightcoral;
+	border: solid;
 }
 
 /*---- Media Query ----*/
