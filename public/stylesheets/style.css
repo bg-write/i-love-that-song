@@ -8,6 +8,12 @@ nav {
 	background-color: white;
 }
 
+/*---- Classes (.) ----*/
+
+/*---- IDs (#) ----*/
+
 #avatarPhoto {
 	border-radius: 50%;
 }
+
+/*---- Media Query ----*/
