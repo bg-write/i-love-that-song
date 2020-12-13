@@ -1,12 +1,12 @@
 # I Love That Song
 
-The app helping writers organize the music they need for reserach.
+The app helping writers organize the music they need for research. (In development.)
 
 ## Getting Started
 
-DEPLOY the app: [LINK]
+Deploy the app: https://i-love-that-song.herokuapp.com/
 
-LINK to original Trello board: https://trello.com/b/ELs21E3z
+Link to original Trello board: https://trello.com/b/ELs21E3z
 
 ## Screenshots
 
@@ -16,6 +16,7 @@ LINK to original Trello board: https://trello.com/b/ELs21E3z
 
 ## Technologies Used
 
+- Heroku
 - JavaScript
 - HTML
 - CSS
