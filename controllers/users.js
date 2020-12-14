@@ -4,6 +4,7 @@ module.exports = {
 	index,
 	showProfile,
 	update,
+	show,
 };
 
 function index(req, res) {
@@ -21,5 +22,15 @@ function showProfile(req, res) {
 function update(req, res) {
 	User.findByIdAndUpdate(req.user._id, req.body, { new: true }).then(() => {
 		res.redirect('/users/profile');
+	});
+}
+
+function show(req, res) {
+	User.findById(req.params.id).then((userInfo) => {
+		res.render('users/show', {
+			title: 'User Details',
+			userInfo,
+			user: req.user,
+		});
 	});
 }

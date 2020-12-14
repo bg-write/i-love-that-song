@@ -1,0 +1,30 @@
+<%- include('../partials/header') %>
+
+<h3><%= title %></h3>
+
+<div class="card" style="width: 18rem">
+	<!-- If our user doesn't have an avatar image, let's use a silly cat picture! -->
+	<img
+		id="avatarPhoto"
+		style="height: 18rem"
+		class="card-img-top"
+		src="<%= userInfo.avatar ? userInfo.avatar : 'http://theoldreader.com/kittens/300/300/'  %>"
+		alt="Card image cap"
+	/>
+	<div class="card-header"></div>
+	<div class="card-body">
+		<h5 class="card-title"><%= userInfo.name %></h5>
+		<!-- Let's clean up the date data to show the day the user joined -->
+		<p class="card-text">
+			Joined: <%= userInfo.createdAt.toLocaleString().split(',')[0] %>
+		</p>
+		<p class="card-text">
+			Email: <a href="mailto:<%= userInfo.email %>"><%= userInfo.email %></a>
+		</p>
+		<p class="card-text">Saved Albums:</p>
+		<!-- This is where we'll iterate over the games with a forEach -->
+		<!-- This is where we'll render buttons to add/remove a user as a friend -->
+	</div>
+</div>
+
+<%- include('../partials/footer') %>
