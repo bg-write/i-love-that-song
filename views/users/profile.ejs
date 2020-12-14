@@ -125,7 +125,12 @@
 			aria-labelledby="friends-tab"
 		>
 			<div class="card-body">
-				<!-- This is where we'll use a forEach to display friends -->
+				<% user.friends.forEach(f => { %>
+				<a href="/users/<%= f._id %>"
+					><img width="30" id="avatarPhoto" src="<%= f.avatar %>" alt="" /><%=
+					f.name %> <%= f.alias ? `(${f.alias})` : '' %></a
+				><br /><br />
+				<% }) %>
 			</div>
 		</div>
 		<!-- This is the card for the 'watchlist' tab -->
