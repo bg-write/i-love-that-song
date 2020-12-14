@@ -70,6 +70,11 @@ nav {
 	border: solid;
 }
 
+#logoCredit {
+	background-color: lightpink;
+	border: solid;
+}
+
 #callToAction {
 	background-color: lightcoral;
 	border: solid;
