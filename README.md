@@ -1,6 +1,6 @@
 # I Love That Song
 
-The app helping writers organize the music they need for research. (In development.)
+The app helping music journalists organize the music they need for research. (In development.)
 
 ## Getting Started
 
