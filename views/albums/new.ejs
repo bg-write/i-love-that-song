@@ -21,9 +21,11 @@
 	<img src="<%= album.cover_image %>" class="card-img-top" alt="..." />
 	<div class="card-body">
 		<h5 class="card-title"><%= album.title %></h5>
-		<p class="card-text">Released: <%= album.year %></p>
-		<p class="card-text">Label: <%= album.label %></p>
-		<p class="card-text">Genre: <%= album.genre %></p>
+		<p class="card-text">
+			I WANT TO PRINT THIS OFF:<br />
+			https://www.discogs.com/<%= album.uri %>
+		</p>
+		<p class="card-text">THE API CALL: <%= album.resource_url %></p>
 		<!-- This is a button that we'll use to navigate to the game's 'show' page.  We still need to fill in the route -->
 		<a href="" class="btn btn-primary">Details</a>
 	</div>
