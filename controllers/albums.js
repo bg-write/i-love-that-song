@@ -14,10 +14,11 @@ function newAlbum(req, res) {
 	});
 }
 
-// update this for Discogs API
 function search(req, res) {
 	axios
-		.get(`https://api.rawg.io/api/games?page_size=5&search=${req.body.query}`)
+		.get(
+			`https://api.discogs.com/database/search?q=${req.body.query}&token=KEaTNesXGDaOPnHYRCZDKdlZjdIHloiveBrFzqIA`
+		)
 		.then((response) => {
 			console.log(response.data.results);
 			res.render('albums/new', {
