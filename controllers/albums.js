@@ -4,6 +4,7 @@ const axios = require('axios');
 module.exports = {
 	new: newAlbum,
 	search,
+	show,
 };
 
 function newAlbum(req, res) {
@@ -25,6 +26,20 @@ function search(req, res) {
 				title: 'Album Search',
 				user: req.user,
 				results: response.data.results,
+			});
+		});
+}
+
+function show(req, res) {
+	axios
+		.get(
+			`https://api.discogs.com/database/search?q=${req.params.id}&token=KEaTNesXGDaOPnHYRCZDKdlZjdIHloiveBrFzqIA`
+		)
+		.then((response) => {
+			res.render('albums/show', {
+				title: 'Album Details',
+				user: req.user,
+				album: response.data,
 			});
 		});
 }

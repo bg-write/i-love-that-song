@@ -17,17 +17,16 @@
 <!-- How the called API output looks on screen -->
 <% if (results) { %> <% results.forEach(album => { %>
 <div class="card" style="width: 18rem">
-	<!-- Album cover -->
 	<img src="<%= album.cover_image %>" class="card-img-top" alt="..." />
 	<div class="card-body">
 		<h5 class="card-title"><%= album.title %></h5>
-		<p class="card-text">
-			I WANT TO PRINT THIS OFF:<br />
+		<h6 class="card-text"><%= album.year %></h6>
+		<p>
+			I WANT TO PRINT THIS:<br />
 			https://www.discogs.com/<%= album.uri %>
 		</p>
 		<p class="card-text">THE API CALL: <%= album.resource_url %></p>
-		<!-- This is a button that we'll use to navigate to the game's 'show' page.  We still need to fill in the route -->
-		<a href="" class="btn btn-primary">Details</a>
+		<a href="/albums/<%= album.id %> " class="btn btn-primary">More Info</a>
 	</div>
 </div>
 <% }) %> <% } %> <%- include('../partials/footer') %>
