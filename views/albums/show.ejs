@@ -1,6 +1,68 @@
 <%- include('../partials/header') %>
-<h3>Game Details Page</h3>
+<H1>IF I WANT TO STICK TO SEARCHING FOR ARTISTS</H1>
+<!-- .get(
+			`https://api.discogs.com/artists/${req.params.id}`
+		) -->
+<h1>STUFF TO SHOW</h1>
+Name:
+<h6><%= album.name %></h6>
+Images:
+<h6><%= album.images %></h6>
+<!-- [object Object] -->
+Real Name:
+<h6><%= album.realname %></h6>
+Profile:
+<h6><%= album.profile %></h6>
+Links:
+<h6><%= album.urls %></h6>
+Also Goes By:
+<h6><%= album.namevariations %></h6>
+Read more on Discogs:
+<h6><%= album.uri %></h6>
 
+<h1>API NUMBERS & LINKS (can't link to a normal user)</h1>
+<h6><%= album.id %></h6>
+<h6><%= album.resource_url %></h6>
+<h6><%= album.releases_url %></h6>
 
+<H1>IF I WANT TO STICK TO SEARCHING FOR ALBUMS</H1>
+<!-- .get(
+			`https://api.discogs.com/masters/${req.params.id}`
+        ) -->
+        <!-- also give /releases/ a shot, it still goes by the id... -->
+<h1>STUFF TO SHOW</h1>
+Album Images:
+<h6><%= album.images %></h6>
+<!-- [object Object] -->
+Genres:
+<h6><%= album.genres %></h6>
+Styles:
+<h6><%= album.styles %></h6>
+Year:
+<h6><%= album.year %></h6>
+TrackList:
+<h6><%= album.tracklist %></h6>
+<!-- [object Object] -->
+By:
+<h6><%= album.artists %></h6>
+<!-- [object Object] -->
+Title:
+<h6><%= album.title %></h6>
+Liner Notes:
+<h6><%= album.notes %></h6>
+Watch:
+<h6><%= album.videos %></h6>
+<!-- [object Object] -->
+Read more on Discogs:
+<h6><%= album.uri %></h6>
+
+<h1>API NUMBERS & LINKS (can't link to a normal user)</h1>
+<h6><%= album.id %></h6>
+<h6><%= album.main_release %></h6>
+<h6><%= album.most_recent_release %></h6>
+<h6><%= album.resource_url %></h6>
+<h6><%= album.versions_url %></h6>
+<h6><%= album.main_release_url %></h6>
+<h6><%= album.main_recent_release_url %></h6>
 
 <%- include('../partials/footer') %>

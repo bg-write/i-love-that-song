@@ -32,14 +32,16 @@ function search(req, res) {
 
 function show(req, res) {
 	axios
-		.get(
-			`https://api.discogs.com/database/search?q=${req.params.id}&token=KEaTNesXGDaOPnHYRCZDKdlZjdIHloiveBrFzqIA`
-		)
+		.get(`https://api.discogs.com/artists/${req.params.id}`)
 		.then((response) => {
+			console.log(response.data);
 			res.render('albums/show', {
 				title: 'Album Details',
 				user: req.user,
 				album: response.data,
 			});
+		})
+		.catch((err) => {
+			console.log(err);
 		});
 }

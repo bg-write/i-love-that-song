@@ -21,11 +21,9 @@
 	<div class="card-body">
 		<h5 class="card-title"><%= album.title %></h5>
 		<h6 class="card-text"><%= album.year %></h6>
-		<p>
-			I WANT TO PRINT THIS:<br />
-			https://www.discogs.com/<%= album.uri %>
-		</p>
-		<p class="card-text">THE API CALL: <%= album.resource_url %></p>
+		<!-- This is just for testing and comparing -->
+		<h6 class="card-text">resource_url: <%= album.resource_url %></h6>
+		<!-- the button to the API I want to show more of -->
 		<a href="/albums/<%= album.id %> " class="btn btn-primary">More Info</a>
 	</div>
 </div>
