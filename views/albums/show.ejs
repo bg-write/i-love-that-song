@@ -144,7 +144,7 @@ Read more on Discogs:
   <p><%= r.rating %> - <img width="20" id="avatarPhoto" src="<%= r.reviewerPhoto %>" alt=""> <%= r.reviewer %></p>
   <p><%= r.content %></p>
 <% }) %>
-<p>Rating: <%= (total / reviews.length).toFixed(2) %></p>
+<p>Overall Rating: <%= (total / reviews.length).toFixed(2) %></p>
 <% if (!reviews.some(u => {return u.reviewer === user.name}) && favoritedBy.some(u => {return u.email === user.email})) { %>
   <form action="/albums/<%= albumId %>/reviews" method="POST">
     <div class="form-group">

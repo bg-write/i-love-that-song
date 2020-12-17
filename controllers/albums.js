@@ -61,8 +61,8 @@ function show(req, res) {
 							title: 'Album Details',
 							user: req.user,
 							album: response.data,
-							favoritedBy: [''],
-							reviews: [''],
+							favoritedBy: ['No one (yet!)'],
+							reviews: ['None (yet!)'],
 						});
 					}
 				});

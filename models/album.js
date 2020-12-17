@@ -5,6 +5,7 @@ const reviewSchema = new Schema(
 	{
 		reviewer: String,
 		reviewerPhoto: String,
+		rating: { type: Number, min: 1, max: 10 },
 		content: String,
 	},
 	{
