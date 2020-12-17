@@ -1,9 +1,9 @@
 <%- include('../partials/header') %>
-<H1>IF I WANT TO STICK TO SEARCHING FOR ARTISTS</H1>
+<H2>IF I WANT TO STICK TO SEARCHING FOR ARTISTS</H2>
 <!-- .get(
 			`https://api.discogs.com/artists/${req.params.id}`
 		) -->
-<h1>STUFF TO SHOW</h1>
+<h3>STUFF TO SHOW</h3>
 Name:
 <h6><%= album.name %></h6>
 Images:
@@ -20,17 +20,17 @@ Also Goes By:
 Read more on Discogs:
 <h6><%= album.uri %></h6>
 
-<h1>API NUMBERS & LINKS (can't link to a normal user)</h1>
+<h3>API NUMBERS & LINKS (can't link to a normal user)</h3>
 <h6><%= album.id %></h6>
 <h6><%= album.resource_url %></h6>
 <h6><%= album.releases_url %></h6>
 
-<H1>IF I WANT TO STICK TO SEARCHING FOR ALBUMS</H1>
+<H2>IF I WANT TO STICK TO SEARCHING FOR ALBUMS</H2>
 <!-- .get(
 			`https://api.discogs.com/masters/${req.params.id}`
         ) -->
-        <!-- also give /releases/ a shot, it still goes by the id... -->
-<h1>STUFF TO SHOW</h1>
+<!-- also give /releases/ a shot, it still goes by the id... -->
+<h3>STUFF TO SHOW</h3>
 Album Images:
 <h6><%= album.images %></h6>
 <!-- [object Object] -->
@@ -56,7 +56,7 @@ Watch:
 Read more on Discogs:
 <h6><%= album.uri %></h6>
 
-<h1>API NUMBERS & LINKS (can't link to a normal user)</h1>
+<h3>API NUMBERS & LINKS (can't link to a normal user)</h3>
 <h6><%= album.id %></h6>
 <h6><%= album.main_release %></h6>
 <h6><%= album.most_recent_release %></h6>
@@ -65,4 +65,83 @@ Read more on Discogs:
 <h6><%= album.main_release_url %></h6>
 <h6><%= album.main_recent_release_url %></h6>
 
+<h1>MORE DETAILS</h1>
+<div class="card" style="width: 36rem">
+	<ul class="nav nav-tabs" id="myTab" role="tablist">
+		<li class="nav-item">
+			<a
+				class="nav-link active"
+				id="albuminfo-tab"
+				data-toggle="tab"
+				href="#albuminfo"
+				role="tab"
+				aria-controls="albuminfo"
+				aria-selected="true"
+				>Album Info</a
+			>
+		</li>
+		<!-- This is the tab header for the list of who has the game in their collection -->
+		<li class="nav-item">
+			<a
+				class="nav-link"
+				id="favorited-tab"
+				data-toggle="tab"
+				href="#favorited"
+				role="tab"
+				aria-controls="favorited"
+				aria-selected="false"
+				>Favorited By</a
+			>
+		</li>
+		<!-- This is the tab header for reviews -->
+		<li class="nav-item">
+			<a
+				class="nav-link"
+				id="reviews-tab"
+				data-toggle="tab"
+				href="#reviews"
+				role="tab"
+				aria-controls="reviews"
+				aria-selected="false"
+				>Reviews</a
+			>
+		</li>
+	</ul>
+	<div class="tab-content" id="myTabContent">
+		<div
+			class="tab-pane fade show active"
+			id="albuminfo"
+			role="tabpanel"
+			aria-labelledby="albuminfo-tab"
+		>
+			<div class="card-body">
+				<h5 class="card-title">FINAL INFO GOES HERE</h5>
+			</div>
+		</div>
+		<!-- This is the tab that will contain our forEach loop indicating who has the game in their collection -->
+		<div
+			class="tab-pane fade"
+			id="favorited"
+			role="tabpanel"
+			aria-labelledby="favorited-tab"
+		>
+			<div class="card-body">
+				<p>Favorited By:</p>
+				<!-- This is where we'll put our favoritedBy.forEach loop -->
+			</div>
+		</div>
+		<!-- This is the tab that holds the review info for a game -->
+		<div
+			class="tab-pane fade"
+			id="reviews"
+			role="tabpanel"
+			aria-labelledby="reviews-tab"
+		>
+			<!--This is where we'll put all the info for reviews  -->
+		</div>
+	</div>
+
+	<!-- This is where we'll put a button to add/remove a game to/from our collection -->
+	<!-- This is where we'll put a button to add/remove a game to/from our watchlist -->
+</div>
 <%- include('../partials/footer') %>
