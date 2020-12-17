@@ -41,6 +41,7 @@ function search(req, res) {
 function show(req, res) {
 	axios
 		.get(`https://api.discogs.com/masters/${req.params.id}`)
+		// axios .get chain? Promises lecture
 		.then((response) => {
 			console.log(response.data);
 			Album.findOne({ id: response.data.id })

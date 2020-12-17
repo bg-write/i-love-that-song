@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const listenListSchema = new Schema(
 	{
 		title: String,
-		released: Date,
+		year: String,
 	},
 	{
 		timestamps: true,

@@ -179,7 +179,7 @@ Read more on Discogs:
 		  <% } else { %>
 		<form action="/albums/<%= album.id %>/collection" method="POST">
 	  <% } %>
-		<input type="text" hidden name="title" value="<%= album.name %>">
+		<input type="text" hidden name="title" value="<%= album.title %>">
 		<input type="text" hidden name="id" value="<%= album.id %>">
 		<button class="btn btn-warning"><%= favoritedBy.some(u => {return u.email === user.email}) ? "Remove from Collection" : "Add to Collection" %></button>
 		</form>
@@ -189,7 +189,7 @@ Read more on Discogs:
 	  <% } else { %>
 		<form action="/albums/<%= album.id %>/listen" method="POST">
 	  <% } %>
-		<input type="text" hidden name="title" value="<%= album.name %>">
+		<input type="text" hidden name="title" value="<%= album.title %>">
 		<input type="text" hidden name="id" value="<%= album.id %>">
 		<button class="btn btn-success"><%= user.listenList.some(a => {return a.id === album.id}) ? "Remove from 'To Listen'" : "Add to 'To Listen'" %></button>
 	  </form>

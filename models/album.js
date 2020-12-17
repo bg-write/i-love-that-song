@@ -15,10 +15,11 @@ const reviewSchema = new Schema(
 const albumSchema = new Schema(
 	{
 		title: String,
-		slug: String,
-		released: Date,
-		imageUrl: String,
-		videoUrl: String,
+		id: String,
+		year: String,
+		cover_image: String,
+		resource_url: String,
+
 		favoritedBy: [{ type: Schema.Types.ObjectId, ref: 'User' }],
 		reviews: [reviewSchema],
 	},
