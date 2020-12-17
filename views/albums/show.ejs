@@ -142,7 +142,16 @@ Read more on Discogs:
 	</div>
 
 	<!-- This is where we'll put a button to add/remove a game to/from our collection -->
-	<!-- This is where we'll put a button to add/remove a game to/from our watchlist -->
+	<% if (favoritedBy.some(u => {return u.email === user.email})) { %>
+		<form action="/albums/<%= album.id %>/collection?_method=DELETE" method="POST">
+		  <% } else { %>
+		<form action="/albums/<%= album.id %>/collection" method="POST">
+	  <% } %>
+		<input type="text" hidden name="title" value="<%= album.name %>">
+		<input type="text" hidden name="id" value="<%= album.id %>">
+		<button class="btn btn-warning"><%= favoritedBy.some(u => {return u.email === user.email}) ? "Remove from Collection" : "Add to Collection" %></button>
+		</form>
+	<!-- This is where we'll put a button to add/remove a game to/from our listenlist -->
 	<% if (user.listenList.some(a => {return a.id === album.id})) { %>
 		<form action="/albums/<%= album.id %>/listen?_method=DELETE" method="POST">
 	  <% } else { %>
@@ -150,7 +159,7 @@ Read more on Discogs:
 	  <% } %>
 		<input type="text" hidden name="title" value="<%= album.name %>">
 		<input type="text" hidden name="id" value="<%= album.id %>">
-		<button class="btn btn-success"><%= user.listenList.some(a => {return a.id === album.id}) ? "UnListen" : "Listen" %></button>
+		<button class="btn btn-success"><%= user.listenList.some(a => {return a.id === album.id}) ? "Remove from 'To Listen'" : "Add to 'To Listen'" %></button>
 	  </form>
 </div>
 <%- include('../partials/footer') %>

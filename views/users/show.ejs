@@ -22,7 +22,9 @@
 			Email: <a href="mailto:<%= userInfo.email %>"><%= userInfo.email %></a>
 		</p>
 		<p class="card-text">Saved Albums:</p>
-		<!-- This is where we'll iterate over the games with a forEach -->
+		<% albums.forEach(album => { %>
+		<a href="/albums/<%= album.id %>"><%= album.title %></a><br />
+		<% }) %><br />
 		<% if (!userInfo._id.equals(user._id) &&
 		!user.friends.includes(userInfo._id)) { %>
 		<a href="/users/<%= userInfo._id %>/friend" class="btn btn-primary"
