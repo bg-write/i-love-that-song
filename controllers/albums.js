@@ -5,6 +5,8 @@ module.exports = {
 	new: newAlbum,
 	search,
 	show,
+	addToListenList,
+	removeFromListenList,
 };
 
 function newAlbum(req, res) {
@@ -44,4 +46,19 @@ function show(req, res) {
 		.catch((err) => {
 			console.log(err);
 		});
+}
+
+function addToListenList(req, res) {
+	req.user.listenList.push(req.body);
+	req.user.save().then(() => {
+		res.redirect(`/albums/${req.body.id}`);
+	});
+}
+
+function removeFromListenList(req, res) {
+	let idx = req.user.listenList.findIndex((a) => a.id === req.params.id);
+	req.user.listenList.splice(idx, 1);
+	req.user.save().then(() => {
+		res.redirect(`/albums/${req.body.id}`);
+	});
 }

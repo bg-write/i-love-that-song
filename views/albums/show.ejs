@@ -143,5 +143,14 @@ Read more on Discogs:
 
 	<!-- This is where we'll put a button to add/remove a game to/from our collection -->
 	<!-- This is where we'll put a button to add/remove a game to/from our watchlist -->
+	<% if (user.listenList.some(a => {return a.id === album.id})) { %>
+		<form action="/albums/<%= album.id %>/listen?_method=DELETE" method="POST">
+	  <% } else { %>
+		<form action="/albums/<%= album.id %>/listen" method="POST">
+	  <% } %>
+		<input type="text" hidden name="title" value="<%= album.name %>">
+		<input type="text" hidden name="id" value="<%= album.id %>">
+		<button class="btn btn-success"><%= user.listenList.some(a => {return a.id === album.id}) ? "UnListen" : "Listen" %></button>
+	  </form>
 </div>
 <%- include('../partials/footer') %>

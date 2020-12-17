@@ -142,6 +142,9 @@
 		>
 			<div class="card-body">
 				<!-- This is where we'll use a forEach to display watchlist items -->
+				<% user.listenList.forEach(a => { %>
+				<a href="/albums/<%= a.id %>"><p><%= a.title %></p></a>
+				<% }) %>
 			</div>
 		</div>
 	</div>
