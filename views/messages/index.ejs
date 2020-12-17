@@ -1,0 +1,29 @@
+<%- include('../partials/header') %>
+
+<h3>Message Board</h3>
+<form action="/messages" method="POST">
+	<div class="form-group">
+		<input
+			type="text"
+			class="form-control"
+			aria-describedby="message"
+			name="title"
+			placeholder="Enter message..."
+		/>
+	</div>
+	<button type="submit" class="btn btn-success">Create Post</button>
+</form>
+
+<% messages.forEach(message => { %>
+<div class="card">
+	<div class="card-header">
+		<%= message.postedBy %>
+		<img id="avatarPhoto" width="30" src="<%= message.avatar %>" alt="" />
+	</div>
+	<div class="card-body">
+		<h5 class="card-title"><%= message.title %></h5>
+		<h6><%= message.createdAt.toLocaleString()%></h6>
+		<a href="/messages/<%= message._id %>" class="btn btn-primary">See Post</a>
+	</div>
+</div>
+<% }) %> <%- include('../partials/footer') %>
