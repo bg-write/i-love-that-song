@@ -12,6 +12,7 @@
 	<%= reply.message %> - <%= reply.postedBy %>
 	<img id="avatarPhoto" width="25" src="<%= reply.avatar %>" alt="" />
 </h6>
+
 <% }) %>
 
 <form action="/messages/<%= message._id %>" method="POST">
@@ -25,6 +26,12 @@
 		/>
 	</div>
 	<button type="submit" class="btn btn-primary">Reply</button>
+</form>
+
+<a href="/messages" class="btn btn-info" role="button">Return to Board</a>
+
+<form action="/messages/<%= message._id %>?_method=DELETE" method="POST">
+	<button type="submit" class="btn btn-primary">DELETE POST</button>
 </form>
 
 <%- include('../partials/footer') %>

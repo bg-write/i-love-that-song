@@ -5,6 +5,7 @@ module.exports = {
 	create,
 	show,
 	reply,
+	delete: deleteReply,
 };
 
 function index(req, res) {
@@ -56,6 +57,16 @@ function reply(req, res) {
 			message.save().then(() => {
 				res.redirect(`/messages/${req.params.id}`);
 			});
+		})
+		.catch((err) => {
+			console.log(err);
+		});
+}
+
+function deleteReply(req, res) {
+	Message.findByIdAndDelete(req.params.id)
+		.then(() => {
+			res.redirect('/messages');
 		})
 		.catch((err) => {
 			console.log(err);
