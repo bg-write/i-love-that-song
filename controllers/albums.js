@@ -9,6 +9,7 @@ module.exports = {
 	removeFromListenList,
 	addToCollection,
 	removeFromCollection,
+	index,
 };
 
 function newAlbum(req, res) {
@@ -51,6 +52,8 @@ function show(req, res) {
 							user: req.user,
 							album: response.data,
 							favoritedBy: album.favoritedBy,
+							albumId: album._id,
+							reviews: album.reviews,
 						});
 					} else {
 						res.render('albums/show', {
@@ -58,11 +61,9 @@ function show(req, res) {
 							user: req.user,
 							album: response.data,
 							favoritedBy: [''],
+							reviews: [''],
 						});
 					}
-				})
-				.catch((err) => {
-					console.log(err);
 				});
 		})
 		.catch((err) => {
@@ -100,23 +101,14 @@ function addToCollection(req, res) {
 		.then((album) => {
 			if (album) {
 				album.favoritedBy.push(req.user._id);
-				album
-					.save()
-					.then(() => {
-						res.redirect(`/albums/${req.body.id}`);
-					})
-					.catch((err) => {
-						console.log(err);
-					});
+				album.save().then(() => {
+					res.redirect(`/albums/${req.body.id}`);
+				});
 			} else {
 				req.body.favoritedBy = req.user._id;
-				Album.create(req.body)
-					.then(() => {
-						res.redirect(`/albums/${req.body.id}`);
-					})
-					.catch((err) => {
-						console.log(err);
-					});
+				Album.create(req.body).then(() => {
+					res.redirect(`/albums/${req.body.id}`);
+				});
 			}
 		})
 		.catch((err) => {
@@ -129,14 +121,23 @@ function removeFromCollection(req, res) {
 		.then((album) => {
 			let idx = album.favoritedBy.indexOf(req.user._id);
 			album.favoritedBy.splice(idx, 1);
-			album
-				.save()
-				.then(() => {
-					res.redirect(`/albums/${req.body.id}`);
-				})
-				.catch((err) => {
-					console.log(err);
-				});
+			album.save().then(() => {
+				res.redirect(`/albums/${req.body.id}`);
+			});
+		})
+		.catch((err) => {
+			console.log(err);
+		});
+}
+
+function index(req, res) {
+	Album.find({ favoritedBy: req.user._id })
+		.then((albums) => {
+			res.render('albums/index', {
+				title: 'Album Collection',
+				user: req.user,
+				albums,
+			});
 		})
 		.catch((err) => {
 			console.log(err);

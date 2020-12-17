@@ -5,7 +5,7 @@
 		) -->
 <h3>STUFF TO SHOW</h3>
 Name:
-<h6><%= album.name %></h6>
+<h6><%= album.name ? album.name : 'N/A' %></h6>
 Images:
 <h6><%= album.images %></h6>
 <!-- [object Object] -->
@@ -138,6 +138,38 @@ Read more on Discogs:
 			aria-labelledby="reviews-tab"
 		>
 			<!--This is where we'll put all the info for reviews  -->
+			<% let total = 0 %>
+<% reviews.forEach(r => { %>
+  <% total+= r.rating %>
+  <p><%= r.rating %> - <img width="20" id="avatarPhoto" src="<%= r.reviewerPhoto %>" alt=""> <%= r.reviewer %></p>
+  <p><%= r.content %></p>
+<% }) %>
+<p>Rating: <%= (total / reviews.length).toFixed(2) %></p>
+<% if (!reviews.some(u => {return u.reviewer === user.name}) && favoritedBy.some(u => {return u.email === user.email})) { %>
+  <form action="/albums/<%= albumId %>/reviews" method="POST">
+    <div class="form-group">
+      <textarea class="form-control" name="content" style="width: 18rem;" id="exampleFormControlTextarea1" placeholder="Leave a Review" rows="3"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlSelect1">Rating</label>
+      <select style="width: 18rem;" class="form-control" name="rating" id="exampleFormControlSelect1">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+        <option>10</option>
+      </select>
+    </div>
+    <input type="text" hidden name="reviewer" value="<%= user.name %>">
+    <input type="text" hidden name="reviewerPhoto" value="<%= user.avatar %>"> 
+    <button class="btn btn-info">Submit</button>
+  </form>
+<% } %>
 		</div>
 	</div>
 

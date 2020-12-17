@@ -1,21 +1,8 @@
 <%- include('../partials/header') %>
 
-<h3><%= title %></h3>
-<form action="/albums/search" method="POST">
-	<div class="form-row">
-		<div class="col-md-4">
-			<input
-				type="text"
-				class="form-control"
-				name="query"
-				placeholder="Search for album..."
-			/>
-		</div>
-	</div>
-	<button type="submit" class="btn btn-success">Search</button>
-</form>
-<!-- How the called API output looks on screen -->
-<% if (results) { %> <% results.forEach(album => { %>
+<h3>Album Collection</h3>
+
+<% albums.forEach(album => { %>
 <div class="card" style="width: 18rem">
 	<img
 		src="<%= album.cover_image ? album.cover_image : 'http://theoldreader.com/kittens/300/300/' %>"
@@ -27,10 +14,10 @@
 		<h6 class="card-text"><%= album.year ? album.year : 'N/A' %></h6>
 		<!-- This is just for testing and comparing -->
 		<h6 class="card-text">
-			resource_url: <%= album.resource_url ? album.resource_url : 'N/A' %>
+			resource_url: <%= album.resource_url ? album.resource_url : 'N/A'%>
 		</h6>
 		<!-- the button to the API I want to show more of -->
 		<a href="/albums/<%= album.id %>" class="btn btn-primary">More Info</a>
 	</div>
 </div>
-<% }) %> <% } %> <%- include('../partials/footer') %>
+<% }) %> <%- include('../partials/footer') %>

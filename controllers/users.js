@@ -44,18 +44,14 @@ function update(req, res) {
 function show(req, res) {
 	User.findById(req.params.id)
 		.then((userInfo) => {
-			Album.find({ favoritedBy: userInfo._id })
-				.then((albums) => {
-					res.render('users/show', {
-						title: 'User Details',
-						userInfo,
-						user: req.user,
-						albums,
-					});
-				})
-				.catch((err) => {
-					console.log(err);
+			Album.find({ favoritedBy: userInfo._id }).then((albums) => {
+				res.render('users/show', {
+					title: 'User Details',
+					userInfo,
+					user: req.user,
+					albums,
 				});
+			});
 		})
 		.catch((err) => {
 			console.log(err);
