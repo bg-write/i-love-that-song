@@ -63,10 +63,18 @@ function reply(req, res) {
 		});
 }
 
+// "You're trying to find a message by the ID, but what you really want to be finding is a reply ... check the function to do this from flights lab"
 function deleteReply(req, res) {
-	Message.findByIdAndDelete(req.params.id)
-		.then(() => {
-			res.redirect('/messages');
+	console.log(req.params);
+	Message.findById(req.params.messageId)
+		.then((message) => {
+			const idx = message.replies.findIndex(
+				(reply) => reply._id == req.params.replyId
+			);
+			message.replies.splice(idx, 1);
+			message.save().then(() => {
+				res.redirect(`/messages/${message._id}`);
+			});
 		})
 		.catch((err) => {
 			console.log(err);

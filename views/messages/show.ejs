@@ -11,12 +11,15 @@
 <h6><u>REPLIES</u></h6>
 <% message.replies.forEach(reply => { %>
 	"<%= reply.message %>" - <b><%= reply.postedBy %></b> [<%= reply.createdAt.toLocaleString() %>]
-	<!-- Deleting a reply -->
-	<form action="/messages/<%= reply._id %>?_method=DELETE" method="POST">
+<!-- Deleting a reply -->
+<% if (user.name === reply.postedBy){ %>
+	<form action="/messages/<%= message._id %>/<%= reply._id %>?_method=DELETE" class="delete-form" method="POST">
 	<button type="submit">X</button>
 	</form>	
+	<% } %>
 </p>
 <% }) %>
+
 <form action="/messages/<%= message._id %>" method="POST">
 	<div class="form-group">
 		<input
