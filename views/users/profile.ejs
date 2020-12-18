@@ -26,7 +26,7 @@
 				role="tab"
 				aria-controls="updateinfo"
 				aria-selected="false"
-				>Update Info</a
+				>Update To-Do's</a
 			>
 		</li>
 	</ul>
@@ -38,10 +38,9 @@
 			aria-labelledby="profileinfo-tab"
 		>
 			<div class="card-body">
-				<h5 class="card-title">Name: <%= user.name %></h5>
-				<p class="card-text">Alias: <%= user.alias %></p>
+				<h5 class="card-title"><%= user.name %></h5>
 				<p class="card-text">Email: <%= user.email %></p>
-				<p class="card-text">Bio: <%= user.bio %></p>
+				<p class="card-text">To-Do's: <%= user.bio %></p>
 			</div>
 		</div>
 		<!-- This is the card for the 'update' tab -->
@@ -55,33 +54,8 @@
 				<!-- The 'Update' route -->
 				<form action="/users/profile?_method=PUT" method="POST">
 					<div class="form-row">
-						<div class="col-md-4">
-							<label for="userAlias">Alias:</label>
-							<input
-								type="text"
-								id="userAlias"
-								class="form-control"
-								name="alias"
-								value="<%= user.alias %>"
-							/>
-						</div>
-						<br />
-					</div>
-					<div class="form-row">
 						<div class="col-md-12">
-							<label for="avatarUrl">Avatar Image URL:</label>
-							<input
-								type="text"
-								id="avatarUrl"
-								class="form-control"
-								name="avatar"
-								value="<%= user.avatar %>"
-							/>
-						</div>
-					</div>
-					<div class="form-row">
-						<div class="col-md-12">
-							<label for="bio">Bio:</label>
+							<label for="bio">To Do's:</label>
 							<textarea rows="3" id="bio" class="form-control" name="bio">
 <%= user.bio %></textarea
 							>
