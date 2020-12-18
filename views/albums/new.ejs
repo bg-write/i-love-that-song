@@ -31,22 +31,36 @@
 		<h6 class="card-text">
 			resource_url: <%= album.resource_url ? album.resource_url : 'N/A' %>
 		</h6>
+		<a href="/albums/<%= album.id %>" class="btn btn-primary">More Info</a>
 
-		<!-- Ternary -->
+		<!-- My sandbox below to make the search work ... -->
+
+		<!-- Ternary logic -->
 		<h5>
-			Is This A Master: <%= album.resource_url.includes('masters') ? 'YES!' :
+			Masters? <%= album.resource_url.includes('masters') ? 'YES!' :
 			'Nope' %>
 		</h5>
-		<!-- if truthy -->
-		<a href="/albums/<%= album.id %>" class="btn btn-primary">More Info</a>
-		<!-- if falsy -->
-		<!-- I want this album card to disappear, or at least say 'Nope' -->
+		<h5>
+			Releases? <%= album.resource_url.includes('releases') ? 'YES!' :
+			'Nope' %>
+		</h5>
+		<h5>
+			Artists? <%= album.resource_url.includes('artists') ? 'YES!' :
+			'Nope' %>
+		</h5>
+		<h5>
+			Labels? <%= album.resource_url.includes('labels') ? 'YES!' :
+			'Nope' %>
+		</h5>
+		
+		
 
-		<!-- new button .... -->
-		<% if (album.resource_url.includes('masters')) { %> 
-		<% console.log('YES!') %> 
-		<% } else { %> 
-		<% console.log('NO!') %> 
+
+		<!-- If album is a 'Masters', return a MASTERS button .... -->
+		<% if (album.resource_url.includes('masters')) { %>
+		<a href="/albums/<%= album.id %>" class="btn btn-primary">MASTERS</a>
+		<% } else { %>
+		<a href="#" class="btn btn-primary">SAD</a>
 		<% } %>
 	</div>
 </div>
