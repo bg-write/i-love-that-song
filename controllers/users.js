@@ -13,7 +13,7 @@ module.exports = {
 function index(req, res) {
 	User.find({})
 		.then((users) => {
-			res.render('users/index', { title: 'User Index', user: req.user, users });
+			res.render('users/index', { title: 'User List', user: req.user, users });
 		})
 		.catch((err) => {
 			console.log(err);
