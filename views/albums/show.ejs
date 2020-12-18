@@ -1,46 +1,8 @@
 <%- include('../partials/header') %>
 
-<H2>API INFO</H2>
-id: <h6><%= album.id ? album.id : '' %></h6>
-resource_url: <h6><%= album.resource_url ? album.resource_url : '' %></h6>
+<!-- TITLE HEADLINE -->
+<h1><%= album.title ? album.title : ''%></h1>
 
-<H2>IF I WANT TO STICK TO SEARCHING FOR ARTISTS</H2>
-<!-- .get(
-			`https://api.discogs.com/artists/${req.params.id}`
-		) -->
-Members: <h6><%= album.members %></h6> <!-- Returns multiple objects --> 
-Aliases: <h6><%= album.aliases %></h6> <!-- Returns multiple objects --> 
-Name Variations: <h6><%= album.namevariations %></h6>
-URLs: <h6><%= album.urls %></h6>
-Profile: <h6><%= album.profile %></h6>
-Name: <h6><%= album.name %></h6>
-
-<H2>IF I WANT TO STICK TO SEARCHING FOR ALBUMS (MASTERS)</H2>
-<!-- .get(
-			`https://api.discogs.com/masters/${req.params.id}`
-        ) -->
-<!-- also give /releases/ a shot, it still goes by the id... -->
-<h6><%= album.title ? `TITLE: ${album.title}` : ''%></h6>
-<h6><%= album.cover_image ? `COVER IMAGE: ${album.cover_image}` : ''%></h6>
-Thumb: <h6><%= album.thumb %></h6>
-Genres: <h6><%= album.genres %></h6>
-Discogs Link: <h6><%= album.uri %></h6>
-Styles: <h6><%= album.styles %></h6>
-Year: <h6><%= album.year %></h6>
-Tracklist: <h6><%= album.tracklist %></h6> <!-- Returns multiple objects --> 
-Artists: <h6><%= album.artists %></h6> <!-- Returns multiple objects --> 
-Notes: <h6><%= album.notes %></h6>
-Videos: <h6><%= album.videos %></h6> <!-- Returns multiple objects --> 
-
-<h3>Specific to RELEASES Show API in addition to MASTERS</h3>
-Extra Artists: <h6><%= album.extraartists %></h6> <!-- Returns multiple objects --> 
-Released: <h6><%= album.released %></h6>
-Country: <h6><%= album.country %></h6>
-Labels: <h6><%= album.labels %></h6> <!-- Returns multiple objects --> 
-Artists (sort): <h6><%= album.artists_sort %></h6>
-
-<!-- The stuff below is what will actually look nice ... -->
-<h1>MORE DETAILS</h1>
 <div class="card" style="width: 36rem">
 	<ul class="nav nav-tabs" id="myTab" role="tablist">
 		<li class="nav-item">
@@ -52,7 +14,7 @@ Artists (sort): <h6><%= album.artists_sort %></h6>
 				role="tab"
 				aria-controls="albuminfo"
 				aria-selected="true"
-				>Album Info</a
+				>Details</a
 			>
 		</li>
 		<!-- This is the tab header for reviews -->
@@ -77,7 +39,44 @@ Artists (sort): <h6><%= album.artists_sort %></h6>
 			aria-labelledby="albuminfo-tab"
 		>
 			<div class="card-body">
-				<h5 class="card-title">FINAL INFO GOES HERE</h5>
+				<H2>API INFO</H2>
+				id: <h6><%= album.id ? album.id : '' %></h6>
+				resource_url: <h6><%= album.resource_url ? album.resource_url : '' %></h6>
+				
+				<H2>IF I WANT TO STICK TO SEARCHING FOR ARTISTS</H2>
+				<!-- .get(
+							`https://api.discogs.com/artists/${req.params.id}`
+						) -->
+				Members: <h6><%= album.members %></h6> <!-- Returns multiple objects --> 
+				Aliases: <h6><%= album.aliases %></h6> <!-- Returns multiple objects --> 
+				Name Variations: <h6><%= album.namevariations %></h6>
+				URLs: <h6><%= album.urls %></h6>
+				Profile: <h6><%= album.profile %></h6>
+				Name: <h6><%= album.name %></h6>
+				
+				<H2>IF I WANT TO STICK TO SEARCHING FOR ALBUMS (MASTERS)</H2>
+				<!-- .get(
+							`https://api.discogs.com/masters/${req.params.id}`
+						) -->
+				<!-- also give /releases/ a shot, it still goes by the id... -->
+				<h6><%= album.cover_image ? `COVER IMAGE: ${album.cover_image}` : ''%></h6>
+				Thumb: <h6><%= album.thumb %></h6>
+				Genres: <h6><%= album.genres %></h6>
+				Discogs Link: <h6><%= album.uri %></h6>
+				Styles: <h6><%= album.styles %></h6>
+				Year: <h6><%= album.year %></h6>
+				Tracklist: <h6><%= album.tracklist %></h6> <!-- Returns multiple objects --> 
+				Artists: <h6><%= album.artists %></h6> <!-- Returns multiple objects --> 
+				Notes: <h6><%= album.notes %></h6>
+				Videos: <h6><%= album.videos %></h6> <!-- Returns multiple objects --> 
+				
+				<h3>Specific to RELEASES Show API in addition to MASTERS</h3>
+				Extra Artists: <h6><%= album.extraartists %></h6> <!-- Returns multiple objects --> 
+				Released: <h6><%= album.released %></h6>
+				Country: <h6><%= album.country %></h6>
+				Labels: <h6><%= album.labels %></h6> <!-- Returns multiple objects --> 
+				Artists (sort): <h6><%= album.artists_sort %></h6>
+				
 			</div>
 		</div>
 		<!-- This is the tab that holds the review info for a game -->
@@ -88,10 +87,14 @@ Artists (sort): <h6><%= album.artists_sort %></h6>
 			aria-labelledby="reviews-tab"
 		>
 			<!--This is where we'll put all the info for reviews  -->
+			<p><i>NOTE: You must add this album to your collection in order to leave a review.</i></p>
 			<% let total = 0 %>
 <% reviews.forEach(r => { %>
-  <p><img width="20" id="avatarPhoto" src="<%= r.reviewerPhoto %>" alt=""> <%= r.reviewer %></p>
-  <p><%= r.content %></p>
+	<!-- The actual review you see on screen -->
+  <p>
+<%= r.content ? `"${r.content}" - ${r.reviewer}` : 'No reviews (yet!)' %><br>
+	</p>
+
 <% }) %>
 <% if (!reviews.some(u => {return u.reviewer === user.name}) && favoritedBy.some(u => {return u.email === user.email})) { %>
   <form action="/albums/<%= albumId %>/reviews" method="POST">
@@ -108,7 +111,7 @@ Artists (sort): <h6><%= album.artists_sort %></h6>
 		</div>
 	</div>
 
-	<!-- This is where we'll put a button to add/remove a game to/from our collection -->
+	<!-- This is where we'll put a button to add/remove am album to/from our collection -->
 	<% if (favoritedBy.some(u => {return u.email === user.email})) { %>
 		<form action="/albums/<%= album.id %>/collection?_method=DELETE" method="POST">
 		  <% } else { %>
@@ -118,16 +121,5 @@ Artists (sort): <h6><%= album.artists_sort %></h6>
 		<input type="text" hidden name="id" value="<%= album.id %>">
 		<button class="btn btn-warning"><%= favoritedBy.some(u => {return u.email === user.email}) ? "Remove from Collection" : "Add to Collection" %></button>
 		</form>
-
-		
-	<!-- This is where we'll put a button to add/remove a game to/from our listenlist -->
-	<% if (user.listenList.some(a => {return a.id === album.id})) { %>
-		<form action="/albums/<%= album.id %>/listen?_method=DELETE" method="POST">
-			<% } else { %>
-			  <form action="/albums/<%= album.id %>/listen" method="POST">
-			<% } %>
-			  <input type="text" hidden name="title" value="<%= album.title %>">
-			  <input type="text" hidden name="id" value="<%= album.id %>">
-			</form>
 </div>
 <%- include('../partials/footer') %>

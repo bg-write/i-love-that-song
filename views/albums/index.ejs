@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 
-<h3>Album Collection</h3>
+<h3>Music Collection</h3>
 
 <% albums.forEach(album => { %>
 <div class="card" style="width: 18rem">
@@ -10,7 +10,7 @@
 		alt="..."
 	/>
 	<div class="card-body">
-		<h5 class="card-title"><%= album.title ? album.title : 'N/A' %></h5>
+		<h5 class="card-title"><%= album.title ? album.title : '' %></h5>
 		<h6 class="card-text"><%= album.year ? album.year : '' %></h6>
 		<!-- This is just for testing and comparing -->
 		<h6 class="card-text">

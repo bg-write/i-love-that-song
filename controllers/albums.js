@@ -14,7 +14,7 @@ module.exports = {
 
 function newAlbum(req, res) {
 	res.render('albums/new', {
-		title: 'Album Search',
+		title: 'Find Music',
 		user: req.user,
 		results: null,
 	});
@@ -28,7 +28,7 @@ function search(req, res) {
 		.then((response) => {
 			console.log(response.data.results);
 			res.render('albums/new', {
-				title: 'Album Search',
+				title: 'Search Results',
 				user: req.user,
 				results: response.data.results,
 			});
@@ -49,7 +49,7 @@ function show(req, res) {
 				.then((album) => {
 					if (album) {
 						res.render('albums/show', {
-							title: 'Album Details',
+							title: 'Details',
 							user: req.user,
 							album: response.data,
 							favoritedBy: album.favoritedBy,
@@ -58,7 +58,7 @@ function show(req, res) {
 						});
 					} else {
 						res.render('albums/show', {
-							title: 'Album Details',
+							title: 'Details',
 							user: req.user,
 							album: response.data,
 							favoritedBy: ['No one (yet!)'],
@@ -135,7 +135,7 @@ function index(req, res) {
 	Album.find({ favoritedBy: req.user._id })
 		.then((albums) => {
 			res.render('albums/index', {
-				title: 'Album Collection',
+				title: 'Music Collection',
 				user: req.user,
 				albums,
 			});
