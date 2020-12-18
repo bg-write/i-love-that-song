@@ -2,6 +2,7 @@
 
 <h3>Music Collection</h3>
 
+<!-- For every album already in My Collection and how I wish to style it ... -->
 <% albums.forEach(album => { %>
 <div class="card" style="width: 18rem">
 	<img
@@ -13,9 +14,9 @@
 		<h5 class="card-title"><%= album.title ? album.title : '' %></h5>
 		<h6 class="card-text"><%= album.year ? album.year : '' %></h6>
 		<!-- This is just for testing and comparing -->
-		<h6 class="card-text">
-			resource_url: <%= album.resource_url ? album.resource_url : 'N/A'%>
+		<h6 class="card-text">resource_URL: <%= album.resource_url ? album.resource_url : 'N/A'%>
 		</h6>
+
 		<!-- the button to the API I want to show more of -->
 		<a href="/albums/<%= album.id %>" class="btn btn-primary">More Info</a>
 	</div>

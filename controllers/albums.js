@@ -41,7 +41,13 @@ function search(req, res) {
 function show(req, res) {
 	axios
 		.get(`https://api.discogs.com/masters/${req.params.id}`)
-		// axios .get chain? Promises lecture
+		// axios .get chain? Promises lecture. Ideally, I'd like to combine the following:
+		// .get(`https://api.discogs.com/masters/${req.params.id}`)
+		// .get(`https://api.discogs.com/releases/${req.params.id}`)
+		// .get(`https://api.discogs.com/artists/${req.params.id}`)
+		// .get(`https://api.discogs.com/artists/${req.params.id}/releases{?sort,sort_order}`)
+		// .get(`https://api.discogs.com/labels/${req.params.id}`)
+		// .get(`https://api.discogs.com/labels/${req.params.id}/releases{?page,per_page}`)
 		.then((response) => {
 			console.log(response.data);
 			Album.findOne({ id: response.data.id })

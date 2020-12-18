@@ -1,6 +1,8 @@
 <%- include('../partials/header') %>
 
 <h3><%= title %></h3>
+
+<!-- When searching for a new album ...-->
 <form action="/albums/search" method="POST">
 	<div class="form-row">
 		<div class="col-md-4">
@@ -29,8 +31,22 @@
 		<h6 class="card-text">
 			resource_url: <%= album.resource_url ? album.resource_url : 'N/A' %>
 		</h6>
-		<!-- the button to the API I want to show more of -->
-		<a href="/albums/<%= album.id %>" class="btn btn-primary">More Info</a>
+
+
+
+		<h5>Is This A Master? <%= album.resource_url.includes('masters') ? 'YES!' : 'Nope' %></h5>
+		<!-- YES-->
+		
+		
+
+		<a href="/albums/<%= album.id %>" class="btn btn-primary">Info</a>
+		
+		
+		
+		<!-- new button .... -->
+		<%= album.resource_url.includes('masters') ? <a href="/albums/<%= album.id %>" class="btn btn-primary">MASTERS</a> : 'Nope'
+
+
 	</div>
 </div>
 <% }) %> <% } %> <%- include('../partials/footer') %>
