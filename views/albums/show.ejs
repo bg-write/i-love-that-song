@@ -55,19 +55,6 @@ Artists (sort): <h6><%= album.artists_sort %></h6>
 				>Album Info</a
 			>
 		</li>
-		<!-- This is the tab header for the list of who has the game in their collection -->
-		<li class="nav-item">
-			<a
-				class="nav-link"
-				id="favorited-tab"
-				data-toggle="tab"
-				href="#favorited"
-				role="tab"
-				aria-controls="favorited"
-				aria-selected="false"
-				>Favorited By</a
-			>
-		</li>
 		<!-- This is the tab header for reviews -->
 		<li class="nav-item">
 			<a
@@ -93,18 +80,6 @@ Artists (sort): <h6><%= album.artists_sort %></h6>
 				<h5 class="card-title">FINAL INFO GOES HERE</h5>
 			</div>
 		</div>
-		<!-- This is the tab that will contain our forEach loop indicating who has the game in their collection -->
-		<div
-			class="tab-pane fade"
-			id="favorited"
-			role="tabpanel"
-			aria-labelledby="favorited-tab"
-		>
-			<div class="card-body">
-				<p>Favorited By:</p>
-				<!-- This is where we'll put our favoritedBy.forEach loop -->
-			</div>
-		</div>
 		<!-- This is the tab that holds the review info for a game -->
 		<div
 			class="tab-pane fade"
@@ -115,30 +90,15 @@ Artists (sort): <h6><%= album.artists_sort %></h6>
 			<!--This is where we'll put all the info for reviews  -->
 			<% let total = 0 %>
 <% reviews.forEach(r => { %>
-  <% total+= r.rating %>
-  <p><%= r.rating %> - <img width="20" id="avatarPhoto" src="<%= r.reviewerPhoto %>" alt=""> <%= r.reviewer %></p>
+  <p><img width="20" id="avatarPhoto" src="<%= r.reviewerPhoto %>" alt=""> <%= r.reviewer %></p>
   <p><%= r.content %></p>
 <% }) %>
-<p>Overall Rating: <%= (total / reviews.length).toFixed(2) %></p>
 <% if (!reviews.some(u => {return u.reviewer === user.name}) && favoritedBy.some(u => {return u.email === user.email})) { %>
   <form action="/albums/<%= albumId %>/reviews" method="POST">
     <div class="form-group">
       <textarea class="form-control" name="content" style="width: 18rem;" id="exampleFormControlTextarea1" placeholder="Leave a Review" rows="3"></textarea>
     </div>
     <div class="form-group">
-      <label for="exampleFormControlSelect1">Rating</label>
-      <select style="width: 18rem;" class="form-control" name="rating" id="exampleFormControlSelect1">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-        <option>6</option>
-        <option>7</option>
-        <option>8</option>
-        <option>9</option>
-        <option>10</option>
-      </select>
     </div>
     <input type="text" hidden name="reviewer" value="<%= user.name %>">
     <input type="text" hidden name="reviewerPhoto" value="<%= user.avatar %>"> 
@@ -158,15 +118,16 @@ Artists (sort): <h6><%= album.artists_sort %></h6>
 		<input type="text" hidden name="id" value="<%= album.id %>">
 		<button class="btn btn-warning"><%= favoritedBy.some(u => {return u.email === user.email}) ? "Remove from Collection" : "Add to Collection" %></button>
 		</form>
+
+		
 	<!-- This is where we'll put a button to add/remove a game to/from our listenlist -->
 	<% if (user.listenList.some(a => {return a.id === album.id})) { %>
 		<form action="/albums/<%= album.id %>/listen?_method=DELETE" method="POST">
-	  <% } else { %>
-		<form action="/albums/<%= album.id %>/listen" method="POST">
-	  <% } %>
-		<input type="text" hidden name="title" value="<%= album.title %>">
-		<input type="text" hidden name="id" value="<%= album.id %>">
-		<button class="btn btn-success"><%= user.listenList.some(a => {return a.id === album.id}) ? "Remove from 'To Listen'" : "Add to 'To Listen'" %></button>
-	  </form>
+			<% } else { %>
+			  <form action="/albums/<%= album.id %>/listen" method="POST">
+			<% } %>
+			  <input type="text" hidden name="title" value="<%= album.title %>">
+			  <input type="text" hidden name="id" value="<%= album.id %>">
+			</form>
 </div>
 <%- include('../partials/footer') %>
