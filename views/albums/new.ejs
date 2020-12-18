@@ -35,7 +35,6 @@
 			resource_url: <%= album.resource_url ? album.resource_url : 'N/A' %>
 		</h6>
 		<h6 class="card-text">id: <%= album.id ? album.id : 'N/A' %></h6>
-		<a href="/albums/<%= album.id %>" class="btn btn-primary">More Info</a>
 
 		<!-- If album is a 'Masters', return MASTERS button -->
 		<% if (album.resource_url.includes('masters')) { %>
