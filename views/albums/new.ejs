@@ -32,21 +32,22 @@
 			resource_url: <%= album.resource_url ? album.resource_url : 'N/A' %>
 		</h6>
 
+		<!-- Ternary -->
+		<h5>
+			Is This A Master: <%= album.resource_url.includes('masters') ? 'YES!' :
+			'Nope' %>
+		</h5>
+		<!-- if truthy -->
+		<a href="/albums/<%= album.id %>" class="btn btn-primary">More Info</a>
+		<!-- if falsy -->
+		<!-- I want this album card to disappear, or at least say 'Nope' -->
 
-
-		<h5>Is This A Master? <%= album.resource_url.includes('masters') ? 'YES!' : 'Nope' %></h5>
-		<!-- YES-->
-		
-		
-
-		<a href="/albums/<%= album.id %>" class="btn btn-primary">Info</a>
-		
-		
-		
 		<!-- new button .... -->
-		<%= album.resource_url.includes('masters') ? <a href="/albums/<%= album.id %>" class="btn btn-primary">MASTERS</a> : 'Nope'
-
-
+		<% if (album.resource_url.includes('masters')) { %> 
+		<% console.log('YES!') %> 
+		<% } else { %> 
+		<% console.log('NO!') %> 
+		<% } %>
 	</div>
 </div>
 <% }) %> <% } %> <%- include('../partials/footer') %>
