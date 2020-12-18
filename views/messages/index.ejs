@@ -1,6 +1,7 @@
 <%- include('../partials/header') %>
 
-<h3>Message Board</h3>
+<p>
+<h3>Message Board (Don't Be THAT Person)</h3>
 <form action="/messages" method="POST">
 	<div class="form-group">
 		<input
@@ -8,22 +9,28 @@
 			class="form-control"
 			aria-describedby="message"
 			name="title"
-			placeholder="Enter message..."
+			placeholder="Enter Message ..."
+			required
 		/>
 	</div>
 	<button type="submit" class="btn btn-success">Create Post</button>
 </form>
+</p>
 
-<% messages.forEach(message => { %>
-<div class="card">
-	<div class="card-header">
-		<%= message.postedBy %>
-		<img id="avatarPhoto" width="30" src="<%= message.avatar %>" alt="" />
-	</div>
-	<div class="card-body">
-		<h5 class="card-title"><%= message.title %></h5>
-		<h6><%= message.createdAt.toLocaleString()%></h6>
-		<a href="/messages/<%= message._id %>" class="btn btn-primary">See Post</a>
+<div>
+	<h5>RECENT POSTS</h5>
+	<% messages.forEach(message => { %>
+	<div class="card">
+		<div class="card-body">
+			<h4 class="card-title"><%= message.title %></h4>
+			<p>
+			By <%= message.postedBy %><br>
+			Originally posted: <%= message.createdAt.toLocaleString()%>
+		</p>
+			<a href="/messages/<%= message._id %>" class="btn btn-primary"
+				>See Post</a
+			>
+		</div>
 	</div>
 </div>
 <% }) %> <%- include('../partials/footer') %>

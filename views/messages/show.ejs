@@ -1,20 +1,16 @@
 <%- include('../partials/header') %>
+<p>
+<h2>"<%= message.title %>"</h2>
+	Original post: <b><%= message.postedBy %></b> [<%=
+	message.createdAt.toLocaleString() %>]
+</p>
 
-<h3>Message Details</h3>
-<h4><%= message.title %></h4>
-<h5>
-	Posted on <%= message.createdAt.toLocaleString() %> - <%= message.postedBy %>
-	<img id="avatarPhoto" width="30" src="<%= message.avatar %>" alt="" />
-</h5>
-
+<p>
+<h6><u>REPLIES</u></h6>
 <% message.replies.forEach(reply => { %>
-<h6>
-	<%= reply.message %> - <%= reply.postedBy %>
-	<img id="avatarPhoto" width="25" src="<%= reply.avatar %>" alt="" />
-</h6>
-
+	"<%= reply.message %>" - <b><%= reply.postedBy %></b> [<%= reply.createdAt.toLocaleString() %>]
+</p>
 <% }) %>
-
 <form action="/messages/<%= message._id %>" method="POST">
 	<div class="form-group">
 		<input
@@ -22,15 +18,18 @@
 			class="form-control"
 			aria-describedby="message"
 			name="message"
-			placeholder="Enter reply..."
+			placeholder="Enter reply ..."
+			required
 		/>
 	</div>
-	<button type="submit" class="btn btn-primary">Reply</button>
+	<button type="submit" class="btn btn-primary">Send Reply</button>
 </form>
 
+<!-- Return to previous screen -->
 <a href="/messages" class="btn btn-info" role="button">Return to Board</a>
 
-<form action="/messages/<%= message._id %>?_method=DELETE" method="POST">
+<!-- If I want to delete the entire post ... Only I should be able to do this? -->
+<form action="/messages/<%= message.replies._id %>?_method=DELETE" method="POST">
 	<button type="submit" class="btn btn-primary">DELETE POST</button>
 </form>
 

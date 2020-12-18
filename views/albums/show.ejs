@@ -94,8 +94,9 @@
   <p>
 <%= r.content ? `"${r.content}" - ${r.reviewer}` : 'No reviews (yet!)' %><br>
 	</p>
-
 <% }) %>
+
+<!-- For submitting a review (once you've saved the album into your collection)-->
 <% if (!reviews.some(u => {return u.reviewer === user.name}) && favoritedBy.some(u => {return u.email === user.email})) { %>
   <form action="/albums/<%= albumId %>/reviews" method="POST">
     <div class="form-group">
@@ -111,7 +112,11 @@
 		</div>
 	</div>
 
-	<!-- This is where we'll put a button to add/remove am album to/from our collection -->
+
+
+
+
+	<!-- Button to add/remove am album to/from our collection -->
 	<% if (favoritedBy.some(u => {return u.email === user.email})) { %>
 		<form action="/albums/<%= album.id %>/collection?_method=DELETE" method="POST">
 		  <% } else { %>
