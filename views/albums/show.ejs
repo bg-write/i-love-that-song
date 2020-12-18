@@ -1,70 +1,45 @@
 <%- include('../partials/header') %>
+
+<H2>API INFO</H2>
+id: <h6><%= album.id ? album.id : '' %></h6>
+resource_url: <h6><%= album.resource_url ? album.resource_url : '' %></h6>
+
 <H2>IF I WANT TO STICK TO SEARCHING FOR ARTISTS</H2>
 <!-- .get(
 			`https://api.discogs.com/artists/${req.params.id}`
 		) -->
-<h3>STUFF TO SHOW</h3>
-Name:
-<h6><%= album.name ? album.name : 'N/A' %></h6>
-Images:
-<h6><%= album.images %></h6>
-<!-- [object Object] -->
-Real Name:
-<h6><%= album.realname %></h6>
-Profile:
-<h6><%= album.profile %></h6>
-Links:
-<h6><%= album.urls %></h6>
-Also Goes By:
-<h6><%= album.namevariations %></h6>
-Read more on Discogs:
-<h6><%= album.uri %></h6>
+Members: <h6><%= album.members %></h6> <!-- Returns multiple objects --> 
+Aliases: <h6><%= album.aliases %></h6> <!-- Returns multiple objects --> 
+Name Variations: <h6><%= album.namevariations %></h6>
+URLs: <h6><%= album.urls %></h6>
+Profile: <h6><%= album.profile %></h6>
+Name: <h6><%= album.name %></h6>
 
-<h3>API NUMBERS & LINKS (can't link to a normal user)</h3>
-<h6><%= album.id %></h6>
-<h6><%= album.resource_url %></h6>
-<h6><%= album.releases_url %></h6>
-
-<H2>IF I WANT TO STICK TO SEARCHING FOR ALBUMS</H2>
+<H2>IF I WANT TO STICK TO SEARCHING FOR ALBUMS (MASTERS)</H2>
 <!-- .get(
 			`https://api.discogs.com/masters/${req.params.id}`
         ) -->
 <!-- also give /releases/ a shot, it still goes by the id... -->
-<h3>STUFF TO SHOW</h3>
-Album Images:
-<h6><%= album.images %></h6>
-<!-- [object Object] -->
-Genres:
-<h6><%= album.genres %></h6>
-Styles:
-<h6><%= album.styles %></h6>
-Year:
-<h6><%= album.year %></h6>
-TrackList:
-<h6><%= album.tracklist %></h6>
-<!-- [object Object] -->
-By:
-<h6><%= album.artists %></h6>
-<!-- [object Object] -->
-Title:
-<h6><%= album.title %></h6>
-Liner Notes:
-<h6><%= album.notes %></h6>
-Watch:
-<h6><%= album.videos %></h6>
-<!-- [object Object] -->
-Read more on Discogs:
-<h6><%= album.uri %></h6>
+<h6><%= album.title ? `TITLE: ${album.title}` : ''%></h6>
+<h6><%= album.cover_image ? `COVER IMAGE: ${album.cover_image}` : ''%></h6>
+Thumb: <h6><%= album.thumb %></h6>
+Genres: <h6><%= album.genres %></h6>
+Discogs Link: <h6><%= album.uri %></h6>
+Styles: <h6><%= album.styles %></h6>
+Year: <h6><%= album.year %></h6>
+Tracklist: <h6><%= album.tracklist %></h6> <!-- Returns multiple objects --> 
+Artists: <h6><%= album.artists %></h6> <!-- Returns multiple objects --> 
+Notes: <h6><%= album.notes %></h6>
+Videos: <h6><%= album.videos %></h6> <!-- Returns multiple objects --> 
 
-<h3>API NUMBERS & LINKS (can't link to a normal user)</h3>
-<h6><%= album.id %></h6>
-<h6><%= album.main_release %></h6>
-<h6><%= album.most_recent_release %></h6>
-<h6><%= album.resource_url %></h6>
-<h6><%= album.versions_url %></h6>
-<h6><%= album.main_release_url %></h6>
-<h6><%= album.main_recent_release_url %></h6>
+<h3>Specific to RELEASES Show API in addition to MASTERS</h3>
+Extra Artists: <h6><%= album.extraartists %></h6> <!-- Returns multiple objects --> 
+Released: <h6><%= album.released %></h6>
+Country: <h6><%= album.country %></h6>
+Labels: <h6><%= album.labels %></h6> <!-- Returns multiple objects --> 
+Artists (sort): <h6><%= album.artists_sort %></h6>
 
+<!-- The stuff below is what will actually look nice ... -->
 <h1>MORE DETAILS</h1>
 <div class="card" style="width: 36rem">
 	<ul class="nav nav-tabs" id="myTab" role="tablist">
