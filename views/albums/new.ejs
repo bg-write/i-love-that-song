@@ -18,6 +18,9 @@
 </form>
 <!-- How the called API output looks on screen -->
 <% if (results) { %> <% results.forEach(album => { %>
+
+<!-- If I want to delete a card as needed, do it right here, put the if statement and wrap up, and return nothing -->
+
 <div class="card" style="width: 18rem">
 	<img
 		src="<%= album.cover_image ? album.cover_image : 'https://thumbs.dreamstime.com/z/funny-dog-wearing-wig-female-clothes-white-background-48441429.jpg' %>"
@@ -31,36 +34,27 @@
 		<h6 class="card-text">
 			resource_url: <%= album.resource_url ? album.resource_url : 'N/A' %>
 		</h6>
+		<h6 class="card-text">id: <%= album.id ? album.id : 'N/A' %></h6>
 		<a href="/albums/<%= album.id %>" class="btn btn-primary">More Info</a>
 
-		<!-- My sandbox below to make the search work ... -->
-
-		<!-- Ternary logic -->
-		<h5>
-			Masters? <%= album.resource_url.includes('masters') ? 'YES!' :
-			'Nope' %>
-		</h5>
-		<h5>
-			Releases? <%= album.resource_url.includes('releases') ? 'YES!' :
-			'Nope' %>
-		</h5>
-		<h5>
-			Artists? <%= album.resource_url.includes('artists') ? 'YES!' :
-			'Nope' %>
-		</h5>
-		<h5>
-			Labels? <%= album.resource_url.includes('labels') ? 'YES!' :
-			'Nope' %>
-		</h5>
-		
-		
-
-
-		<!-- If album is a 'Masters', return a MASTERS button .... -->
+		<!-- If album is a 'Masters', return MASTERS button -->
 		<% if (album.resource_url.includes('masters')) { %>
 		<a href="/albums/<%= album.id %>" class="btn btn-primary">MASTERS</a>
-		<% } else { %>
-		<a href="#" class="btn btn-primary">SAD</a>
+		<% } %>
+
+		<!-- If album is a 'Releases', return RELEASES button -->
+		<% if (album.resource_url.includes('releases')) { %>
+		<a href="/albums/<%= album.id %>" class="btn btn-primary">RELEASES</a>
+		<% } %>
+
+		<!-- If album is a 'Artists', return MASTERS button -->
+		<% if (album.resource_url.includes('artists')) { %>
+		<a href="/albums/<%= album.id %>" class="btn btn-primary">ARTISTS</a>
+		<% } %>
+
+		<!-- If album is a 'Labels', return MASTERS button -->
+		<% if (album.resource_url.includes('labels')) { %>
+		<a href="/albums/<%= album.id %>" class="btn btn-primary">LABELS</a>
 		<% } %>
 	</div>
 </div>
