@@ -14,15 +14,36 @@ Link to original Trello board: https://trello.com/b/ELs21E3z
 
 [Other pages of interest]
 
+## What This App Can Do
+
+- Sign in and out through Google, saving your information
+- Full CRURD, including:
+- CREATE
+- READ
+- UPDATE
+- DELETE
+- App's features demonstrated using the preferred user
+
+## The Code Itself
+
+- The Main Mongoose Model, its controller & favorite EJS template
+
+## Key Learnings/takeaways
+
+- Don't underestimate your API ...
+
 ## Technologies Used
 
+- Node.js
+- Mongoose
+- Mongo
 - Heroku
 - JavaScript
 - HTML
 - CSS
 - Postman
 - app.diagrams.net
-- API
+- Discogs API
 - GitHub
 - Git
 - Mac Terminal
