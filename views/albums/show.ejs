@@ -17,19 +17,6 @@
 				>Details</a
 			>
 		</li>
-		<!-- This is the tab header for reviews -->
-		<li class="nav-item">
-			<a
-				class="nav-link"
-				id="reviews-tab"
-				data-toggle="tab"
-				href="#reviews"
-				role="tab"
-				aria-controls="reviews"
-				aria-selected="false"
-				>Reviews</a
-			>
-		</li>
 	</ul>
 	<div class="tab-content" id="myTabContent">
 		<div
@@ -79,39 +66,6 @@
 				
 			</div>
 		</div>
-		<!-- This is the tab that holds the review info for a game -->
-		<div
-			class="tab-pane fade"
-			id="reviews"
-			role="tabpanel"
-			aria-labelledby="reviews-tab"
-		>
-			<!--This is where we'll put all the info for reviews  -->
-			<p><i>NOTE: You must add this album to your collection in order to leave a review.</i></p>
-			<% let total = 0 %>
-<% reviews.forEach(r => { %>
-	<!-- The actual review you see on screen -->
-  <p>
-<%= r.content ? `"${r.content}" - ${r.reviewer}` : 'No reviews (yet!)' %><br>
-	</p>
-<% }) %>
-
-<!-- For submitting a review (once you've saved the album into your collection)-->
-<% if (!reviews.some(u => {return u.reviewer === user.name}) && favoritedBy.some(u => {return u.email === user.email})) { %>
-  <form action="/albums/<%= albumId %>/reviews" method="POST">
-    <div class="form-group">
-      <textarea class="form-control" name="content" style="width: 18rem;" id="exampleFormControlTextarea1" placeholder="Leave a Review" rows="3"></textarea>
-    </div>
-    <div class="form-group">
-    </div>
-    <input type="text" hidden name="reviewer" value="<%= user.name %>">
-    <input type="text" hidden name="reviewerPhoto" value="<%= user.avatar %>"> 
-    <button class="btn btn-info">Submit</button>
-  </form>
-<% } %>
-		</div>
-	</div>
-
 
 
 

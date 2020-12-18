@@ -63,7 +63,6 @@ function reply(req, res) {
 		});
 }
 
-// "You're trying to find a message by the ID, but what you really want to be finding is a reply ... check the function to do this from flights lab"
 function deleteReply(req, res) {
 	console.log(req.params);
 	Message.findById(req.params.messageId)
