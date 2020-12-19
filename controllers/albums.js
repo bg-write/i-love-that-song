@@ -14,7 +14,7 @@ module.exports = {
 
 function newAlbum(req, res) {
 	res.render('albums/new', {
-		title: 'Find Music',
+		title: 'Find An Album',
 		user: req.user,
 		results: null,
 	});

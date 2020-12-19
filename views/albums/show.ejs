@@ -12,33 +12,17 @@
 			<div class="card-body">
 				<!-- Everything that's going to come up no matter what .get is ued -->
 				<div>
-					<h1><%= album.title ? album.title : ''%> (<%= album.year ? album.year : '' %>)</h1>
-					Read more on <a href="<%= album.uri %>">Discogs</a>
+					<% album.artists.forEach(a => { %>
+						<h1><%= a.name ? a.name : '' %></h1>
+					<% }) %>
+					<i><h1><%= album.title ? album.title : ''%></h1></i>
+					<h1>(<%= album.year ? album.year : '' %>)</h1>
+					<h6>Read more on <a href="<%= album.uri %>">Discogs</a></h6>
 					</div>
-
-				<!-- Everything that comes up connected to the "artists" .get -->
-				<H2>(ARTISTS)</H2>
-				Members: <h6><%= album.members %></h6> <!-- Returns multiple objects --> 
-				Aliases: <h6><%= album.aliases %></h6> <!-- Returns multiple objects --> 
-				Name Variations: <h6><%= album.namevariations %></h6>
-				URLs: <h6><%= album.urls %></h6>
-				Profile: <h6><%= album.profile %></h6>
-				Name: <h6><%= album.name %></h6>
-				
-
-				<!-- Everything that comes up connected to the "masters" .get -->
-				<H2>(MASTERS)</H2>
-				Artists:
-				<% album.artists.forEach(a => { %>
-					<h6><%= a.name ? a.name : '' %></h6>
-				<% }) %>
-
-				Genres: <h6><%= album.genres ? album.genres : '' %></h6>
-
-				Styles: <h6><%= album.styles ? album.styles : '' %></h6>
-
+				<!-- ICEBOX: Everything that comes up below is connected to the "masters" .get API function. In the future, with more time, I want to be able to render the options for "Artists", "Releases", and "Labels" requests; check each Postman link via Discogs API notation for future reference. -->
+				Genre: <h6><%= album.genres ? album.genres : '' %></h6>
+				Style: <h6><%= album.styles ? album.styles : '' %></h6>
 				Liner Notes: <h6><%= album.notes ? album.notes : '' %></h6>
-
 				<u><h6>Tracklist (A/B Sides):</h6></u>
 				<% album.tracklist.forEach(t => { %>
 					<div>
@@ -54,7 +38,6 @@
 						</p>
 					</div>
 				<% }) %>
-
 				<u><h6>Videos:</h6></u>
 				<% album.videos.forEach(v => { %>
 					<div>
@@ -66,21 +49,8 @@
 						</p>
 					</div>
 				<% }) %>
-
-				
-				
-
-				<!-- Everything that comes up connected to the "releases" .get -->
-				<H2>(RELEASES)</H2>
-				Extra Artists: <h6><%= album.extraartists %></h6> <!-- Returns multiple objects --> 
-				Released: <h6><%= album.released %></h6>
-				Country: <h6><%= album.country %></h6>
-				Labels: <h6><%= album.labels %></h6> <!-- Returns multiple objects --> 
-				Artists (sort): <h6><%= album.artists_sort %></h6>
-				
 			</div>
 		</div>
-
 	<!-- Button to add/remove am album to/from our collection -->
 	<% if (favoritedBy.some(u => {return u.email === user.email})) { %>
 		<form action="/albums/<%= album.id %>/collection?_method=DELETE" method="POST">

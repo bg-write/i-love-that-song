@@ -1,6 +1,7 @@
 <%- include('../partials/header') %>
 
-<h3><%= title %></h3>
+<h3>Find an Album</h3>
+<h6>(Artist, singles, and label search coming soon!)</h6>
 
 <!-- When searching for a new album ...-->
 <form action="/albums/search" method="POST">
@@ -10,7 +11,7 @@
 				type="text"
 				class="form-control"
 				name="query"
-				placeholder="What are you trying to find ..."
+				placeholder="Prove Bono wrong ..."
 			/>
 		</div>
 	</div>
@@ -18,9 +19,8 @@
 </form>
 <!-- How the called API output looks on screen -->
 <% if (results) { %> <% results.forEach(album => { %>
-
-<!-- If I want to delete a card as needed, do it right here, put the if statement and wrap up, and return nothing -->
-
+<!-- ICEBOX This IF Statement allows me to return only MASTERS, based on my API call. In the future, I want to make my search more powerful to also render the different returns for RELEASES, ARTISTS, and LABELS. For now, this will do. -->
+<% if (album.resource_url.includes('masters')) { %>
 <div class="card" style="width: 18rem">
 	<img
 		src="<%= album.cover_image ? album.cover_image : 'https://thumbs.dreamstime.com/z/funny-dog-wearing-wig-female-clothes-white-background-48441429.jpg' %>"
@@ -30,26 +30,8 @@
 	<div class="card-body">
 		<h3 class="card-title"><%= album.title ? album.title : 'N/A' %></h3>
 		<h5 class="card-text"><%= album.year ? album.year : '' %></h5>
-
-		<!-- If album is a 'Masters', return MASTERS button -->
-		<% if (album.resource_url.includes('masters')) { %>
-		<a href="/albums/<%= album.id %>" class="btn btn-primary">MASTERS</a>
-		<% } %>
-
-		<!-- If album is a 'Releases', return RELEASES button -->
-		<% if (album.resource_url.includes('releases')) { %>
-		<a href="/albums/<%= album.id %>" class="btn btn-primary">RELEASES</a>
-		<% } %>
-
-		<!-- If album is a 'Artists', return MASTERS button -->
-		<% if (album.resource_url.includes('artists')) { %>
-		<a href="/albums/<%= album.id %>" class="btn btn-primary">ARTISTS</a>
-		<% } %>
-
-		<!-- If album is a 'Labels', return MASTERS button -->
-		<% if (album.resource_url.includes('labels')) { %>
-		<a href="/albums/<%= album.id %>" class="btn btn-primary">LABELS</a>
-		<% } %>
+		<a href="/albums/<%= album.id %>" class="btn btn-primary">GET INFO</a>
 	</div>
 </div>
-<% }) %> <% } %> <%- include('../partials/footer') %>
+<% } else { %> <% return '' %> <% } %> <% }) %> <% } %> <%-
+include('../partials/footer') %>
