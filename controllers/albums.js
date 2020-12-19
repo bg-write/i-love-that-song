@@ -55,7 +55,7 @@ function show(req, res) {
 				.then((album) => {
 					if (album) {
 						res.render('albums/show', {
-							title: album.title,
+							title: 'Album Details',
 							user: req.user,
 							album: response.data,
 							favoritedBy: album.favoritedBy,
@@ -64,7 +64,7 @@ function show(req, res) {
 						});
 					} else {
 						res.render('albums/show', {
-							title: album.title,
+							title: 'Album Details',
 							user: req.user,
 							album: response.data,
 							favoritedBy: ['No one (yet!)'],

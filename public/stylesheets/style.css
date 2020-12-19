@@ -1,4 +1,16 @@
+/*---- BG STYLE GUIDE FOR "I LOVE THAT SONG" ----*/
+/*
+Text: black
+Hover Text:
+Background: teal
+Backgound 2: aquamarine (need to update to match teal)
+Navigation: goldenrod & darkgoldenrod
+Footer:
+*/
+
+
 body {
+	/* Everything you see in the background! */
 	font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
 	background-color: teal;
 	border: solid;
@@ -6,55 +18,64 @@ body {
 }
 
 nav {
+	/* The space for everything in the app's header! */
+	/* Used in: header.ejs */
 	background-color: aquamarine;
 	border: solid;
 }
 
 /*---- Classes (.) ----*/
 .nav-item {
-	background-color: firebrick;
+	/* The actual nav buttons */
+	/* Used in: header.ejs */
+	background-color: goldenrod;
 	border: solid;
 }
 
 .nav-link {
+	/* The space inside the nav buttons, including color and text */
+	/* Used in: header.ejs */
 	background-color: goldenrod;
+	color: black;
 }
 
 /*---- IDs (#) ----*/
+/*---- HEADER.EJS ----*/
 #logoPic {
+	/* coffee & music gif! */
 	width: 100px;
 	border: solid;
 }
 
 #headlineText {
-	/*---- "I Love That Song" ----*/
-	background-color: cadetblue;
-	border: solid;
+	/* "I Love That Song" */
+	color: black;
 }
 
 #subheadlineText {
-	background-color: cadetblue;
+	/* "Spend more time writing */
+	background-color: teal;
 	border: solid;
 }
 
 #navbar {
+	/* The space holding all the nav buttons */
 	background-color: darkgoldenrod;
 	border: solid;
 }
 
 #navbar ul {
+	/* The space around a button */
 	padding: 0;
 	margin: 0;
 }
 
 #navbar li {
+	/* Keeping buttons reading side-to-side, include of default column view */
 	display: inline-block;
 }
 
-/* #avatarPhoto {
-	border-radius: 50%;
-} */
-
+/*---- FOOTER.EJS ----*/
 #footer {
 	background-color: honeydew;
 	border: solid;

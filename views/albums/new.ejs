@@ -1,9 +1,10 @@
 <%- include('../partials/header') %>
 
+<!-- When searching for a new album ...-->
+
 <h3>Find An Album</h3>
 <h6>(Artist, singles, and label search coming soon!)</h6>
 
-<!-- When searching for a new album ...-->
 <form action="/albums/search" method="POST">
 	<div class="form-row">
 		<div class="col-md-4">
@@ -12,7 +13,7 @@
 				class="form-control"
 				name="query"
 				placeholder="Prove Bono wrong ..."
-			/>
+			>
 		</div>
 	</div>
 	<button type="submit" class="btn btn-success">Search</button>

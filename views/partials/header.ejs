@@ -1,3 +1,5 @@
+<!-- All Head information and navigation styling lives here; no matter what page you're on, you'll always see the following -->
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -13,8 +15,10 @@
 		/>
 		<link rel="stylesheet" href="/stylesheets/style.css" />
 		<title><%= title %></title>
+		<!-- I Love That Song -->
 	</head>
 	<body>
+		<!-- Space holding logo gif, headline text, and subheadline text -->
 		<nav>
 			<img
 				id="logoPic"
@@ -26,7 +30,7 @@
 
 			<div id="navbar">
 				<ul>
-					<!-- When user is logged in-->
+					<!-- When the user is logged in-->
 					<% if (user) { %>
 					<li class="nav-item">
 						<a class="nav-link" href="/albums/new">Find Album</a>
