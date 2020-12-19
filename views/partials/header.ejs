@@ -15,24 +15,24 @@
 		/>
 		<link rel="stylesheet" href="/stylesheets/style.css" />
 		<title><%= title %></title>
-		<!-- I Love That Song -->
 	</head>
 	<body>
-		<!-- Space holding logo gif, headline text, and subheadline text -->
-		<nav>
-			<div class="row align-items-center" id="headlineArea">
-				<img
-					id="logoPic"
-					src="https://media4.giphy.com/media/Urt702zuzo34w8nZ0A/giphy.gif"
-					alt="logo"
-					class="col"
-				/>
-				<div id="headlineText" class="col-6">
-					<a href="/">I Love That Song.</a>
-				</div>
-				<div id="subheadlineText" class="col">Spend more time writing.</div>
+		<!-- FLEX-CONTAINER: headlineArea -->
+		<div class="row align-items-center flex-container" id="headlineArea">
+			<img
+				id="logoPic"
+				src="https://media4.giphy.com/media/Urt702zuzo34w8nZ0A/giphy.gif"
+				alt="logo"
+				class="col"
+			/>
+			<div id="headlineText" class="col-6">
+				<a href="/">I Love That Song.</a>
 			</div>
-			<div id="navbar">
+			<div id="subheadlineText" class="col">Spend more time writing.</div>
+		</div>
+		<!-- FLEX-CONTAINER: nav -->
+		<nav class="flex-container" id="navbar">
+			<div>
 				<ul>
 					<!-- When the user is logged in-->
 					<% if (user) { %>
@@ -60,5 +60,12 @@
 				</ul>
 			</div>
 		</nav>
+		<main>
+			<!-- FLEX-CONTAINER: body -->
+			<div id="mainBody" class="flex-container">
+
+
+
+
 	</body>
 </html>

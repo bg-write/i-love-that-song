@@ -7,26 +7,42 @@ Navigation: goldenrod & darkgoldenrod
 Footer: #FF745F (the logo color)
 */
 
+html {
+	box-sizing: border-box;
+	height: 100vh;
+	margin: 0;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+:root {
+	font-size: 62.5%;
+}
+
 body {
 	/* Everything you see in the background! */
 	font: 1rem 'Lucida Grande', Helvetica, Arial, sans-serif;
 	background-color: teal;
 	margin-left: 0.5rem;
 	margin-right: 0.5rem;
-}
-
-nav {
-	/* The space for everything in the app's header! */
-	/* Used in: header.ejs */
-	background-color: aquamarine;
 	border: solid;
+	display: grid;
+	height: 100vh;
+	grid-template-columns: 1fr;
+	grid-template-rows: 0.5fr 2fr 0.5fr 1fr;
+	grid-template-areas:
+		'headlineArea'
+		'navbar'
+		'mainBody'
+		'footer';
 }
 
 /*---- Classes (.) ----*/
 .nav-item {
-	/* The actual nav buttons */
-	/* Used in: header.ejs */
-	background-color: goldenrod;
 	border: solid;
 }
 
@@ -40,9 +56,13 @@ nav {
 /*---- IDs (#) ----*/
 /*---- HEADER.EJS ----*/
 #headlineArea {
-	/* The area holding logo and copy above the nav bar */
-	margin: 0;
+	/* The actual nav buttons */
+	/* Used in: header.ejs */
 	border: solid;
+	margin: 0;
+	grid-area: headlineArea;
+	align-items: flex-start;
+	justify-content: flex-start;
 }
 
 #logoPic {
@@ -71,6 +91,9 @@ nav {
 	/* The space holding all the nav buttons */
 	background-color: darkgoldenrod;
 	border: solid;
+	grid-area: navbar;
+	align-items: flex-start;
+	justify-content: flex-start;
 }
 
 #navbar ul {
@@ -93,9 +116,39 @@ nav {
 	font-size: small;
 	padding: 0.5rem;
 	margin: 0.5rem;
+	grid-area: footer;
+	align-items: flex-start;
+	justify-content: flex-start;
 }
 
 #footer a {
 	/* Change the color of the links in teh footer */
 	color: white;
 }
+
+/*---- NON-PARTIAL VIEWS ----*/
+#mainBody {
+	/* All the space between the header and footer partials */
+	/* Keep this now for testing ... */
+	border: solid;
+	grid-area: body;
+	align-items: flex-start;
+	justify-content: flex-start;
+}
+
+/*---- ERROR.EJS ----*/
+/*---- INDEX.EJS ----*/
+
+/*---- ALBUMS VIEWS ----*/
+/*---- INDEX.EJS ----*/
+/*---- NEW.EJS ----*/
+/*---- SHOW.EJS ----*/
+
+/*---- MESSAGES VIEWS ----*/
+/*---- INDEX.EJS ----*/
+/*---- SHOW.EJS ----*/
+
+/*---- USERS VIEWS ----*/
+/*---- INDEX.EJS ----*/
+/*---- PROFILE.EJS ----*/
+/*---- SHOW.EJS ----*/
