@@ -39,24 +39,31 @@
 
 				Styles: <h6><%= album.styles %></h6>
 
-				<h6>Tracklist:</h6> <!-- Returns multiple objects, still check this! --> 
+				<u><h6>Tracklist (A/B Sides):</h6></u>
 				<% album.tracklist.forEach(t => { %>
 					<div>
-					<ul>
-					<li><b>"<%= t.title; %>" (<%= t.position; %>)</b></li>
+						<p>
+					<%= t.position; %> - <b>"<%= t.title; %>"</b><br>
 					<% t.extraartists.forEach(ea => { %>
 						-- <%= ea.role; %> - <%= ea.name; %><br>
 				<%	}) %>
-					</ul>
+			</p>
 					</div>
 				<% }) %>
 
-				Videos:
+				<u><h6>Videos:</h6></u>
 				<% album.videos.forEach(v => { %>
-					<%= v.uri; %>
-					<%= v.title; %>
-					<%= v.description; %>
+					<div>
+						<p>
+						<b><%= v.title; %><br></b>
+						<iframe width="420" height="315"
+src="https://www.youtube.com/embed/<%= v.uri.slice(-11) %>">
+</iframe>
+					</p>
+				</div>
 				<% }) %>
+
+				
 				
 
 				<!-- Everything that comes up connected to the "releases" .get -->
