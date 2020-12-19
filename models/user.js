@@ -5,6 +5,9 @@ const listenListSchema = new Schema(
 	{
 		title: String,
 		year: String,
+		id: String,
+		cover_image: String,
+		resource_url: String
 	},
 	{
 		timestamps: true,

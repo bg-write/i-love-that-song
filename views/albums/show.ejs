@@ -46,13 +46,17 @@
 							`https://api.discogs.com/masters/${req.params.id}`
 						) -->
 				<!-- also give /releases/ a shot, it still goes by the id... -->
-				<h6><%= album.cover_image ? `COVER IMAGE: ${album.cover_image}` : ''%></h6>
-				Thumb: <h6><%= album.thumb %></h6>
+				Cover Image: <h6><%= album.cover_image ? album.cover_image : 'N/A'%></h6>
+				Thumb: <h6><%= album.thumb ? album.thumb : 'N/A' %></h6>
 				Genres: <h6><%= album.genres %></h6>
 				Discogs Link: <h6><%= album.uri %></h6>
 				Styles: <h6><%= album.styles %></h6>
 				Year: <h6><%= album.year %></h6>
-				Tracklist: <h6><%= album.tracklist %></h6> <!-- Returns multiple objects --> 
+
+				Tracklist: <% album.tracklist.forEach(t => { %>
+					<%= t.title; %>
+				<% }) %>
+				
 				Artists: <h6><%= album.artists %></h6> <!-- Returns multiple objects --> 
 				Notes: <h6><%= album.notes %></h6>
 				Videos: <h6><%= album.videos %></h6> <!-- Returns multiple objects --> 
@@ -76,8 +80,12 @@
 		  <% } else { %>
 		<form action="/albums/<%= album.id %>/collection" method="POST">
 	  <% } %>
+	  <input type="text" hidden name="cover_image" value="<%= album.cover_image %>">
+	  <input type="text" hidden name="thumb" value="<%= album.thumb %>">
 		<input type="text" hidden name="title" value="<%= album.title %>">
+		<input type="text" hidden name="year" value="<%= album.year %>">
 		<input type="text" hidden name="id" value="<%= album.id %>">
+		<input type="text" hidden name="resource_url" value="<%= album.resource_url %>">
 		<button class="btn btn-warning"><%= favoritedBy.some(u => {return u.email === user.email}) ? "Remove from Collection" : "Add to Collection" %></button>
 		</form>
 </div>
