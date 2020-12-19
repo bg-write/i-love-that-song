@@ -33,7 +33,7 @@ body {
 	display: grid;
 	height: 100vh;
 	grid-template-columns: 1fr;
-	grid-template-rows: 0.5fr 2fr 0.5fr 1fr;
+	grid-template-rows: .1fr .1fr 2fr .1fr;
 	grid-template-areas:
 		'headlineArea'
 		'navbar'
@@ -131,7 +131,7 @@ body {
 	/* All the space between the header and footer partials */
 	/* Keep this now for testing ... */
 	border: solid;
-	grid-area: body;
+	grid-area: mainBody;
 	align-items: flex-start;
 	justify-content: flex-start;
 }
