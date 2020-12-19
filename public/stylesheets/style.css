@@ -32,8 +32,8 @@ body {
 	border: solid;
 	display: grid;
 	height: 100vh;
-	grid-template-columns: 1fr;
-	grid-template-rows: .1fr .1fr 2fr .1fr;
+	grid-template-columns: auto;
+	grid-template-rows: min-content min-content auto min-content;
 	grid-template-areas:
 		'headlineArea'
 		'navbar'
@@ -56,13 +56,10 @@ body {
 /*---- IDs (#) ----*/
 /*---- HEADER.EJS ----*/
 #headlineArea {
-	/* The actual nav buttons */
-	/* Used in: header.ejs */
+	/* the space holding logo and headline text */
 	border: solid;
 	margin: 0;
 	grid-area: headlineArea;
-	align-items: flex-start;
-	justify-content: flex-start;
 }
 
 #logoPic {
@@ -92,8 +89,6 @@ body {
 	background-color: darkgoldenrod;
 	border: solid;
 	grid-area: navbar;
-	align-items: flex-start;
-	justify-content: flex-start;
 }
 
 #navbar ul {
@@ -117,8 +112,6 @@ body {
 	padding: 0.5rem;
 	margin: 0.5rem;
 	grid-area: footer;
-	align-items: flex-start;
-	justify-content: flex-start;
 }
 
 #footer a {
@@ -132,8 +125,6 @@ body {
 	/* Keep this now for testing ... */
 	border: solid;
 	grid-area: mainBody;
-	align-items: flex-start;
-	justify-content: flex-start;
 }
 
 /*---- ERROR.EJS ----*/
