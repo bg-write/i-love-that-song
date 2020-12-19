@@ -42,14 +42,41 @@ body {
 
 /*---- Classes (.) ----*/
 .nav-item {
+	/* BOOTSTRAP The actual buttons! */
 	border: solid;
 }
 
 .nav-link {
-	/* The space inside the nav buttons, including color and text */
+	/* BOOTSTRAP The space inside the nav buttons, including color and text */
 	/* Used in: header.ejs */
 	background-color: goldenrod;
 	color: black;
+}
+
+.card {
+	/* BOOTSTRAP card used for albums and collection; this gives the actual shape to the card */
+	background-color: white;
+}
+
+.card-body {
+	/* BOOTSTRAP edit the actual content in the card */
+	border: solid;
+}
+
+.card-title {
+	/* BOOTSTRAP The atual copy in the card */
+	color: black;
+}
+
+.btn {
+	/* BOOTSTRAP edit the content inside the button */
+	color: black;
+	background-color: goldenrod;
+}
+
+.btn:hover {
+	/* BOOTSTRAP edit what happens when I hover over the button */
+	background-color: #FF745F;
 }
 
 /*---- IDs (#) ----*/
@@ -101,6 +128,12 @@ body {
 	display: inline-block;
 }
 
+#navbar a:hover {
+	/* Editing colors when hovering over nav bar */
+	background-color: #FF745F;
+	color: white;
+}
+
 /*---- FOOTER.EJS ----*/
 #footer {
 	/* Everything you see in the footer! */
@@ -131,6 +164,11 @@ body {
 
 /*---- ALBUMS VIEWS ----*/
 /*---- INDEX.EJS ----*/
+#indexTitle {
+	font-size: x-large;
+	padding: 1rem;
+}
+
 /*---- NEW.EJS ----*/
 /*---- SHOW.EJS ----*/
 
