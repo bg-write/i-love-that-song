@@ -27,9 +27,8 @@ body {
 	/* Everything you see in the background! */
 	font: 1rem 'Lucida Grande', Helvetica, Arial, sans-serif;
 	background-color: teal;
-	margin-left: 0.5rem;
-	margin-right: 0.5rem;
-	border: solid;
+	margin: 0;
+	padding: 1rem;
 	display: grid;
 	height: 100vh;
 	grid-template-columns: auto;
@@ -109,8 +108,7 @@ body {
 	background-color: #ff745f;
 	text-align: center;
 	font-size: small;
-	padding: 0.5rem;
-	margin: 0.5rem;
+	padding: 1rem;
 	grid-area: footer;
 }
 
@@ -124,6 +122,7 @@ body {
 	/* All the space between the header and footer partials */
 	/* Keep this now for testing ... */
 	border: solid;
+	padding: 1rem;
 	grid-area: mainBody;
 }
 
