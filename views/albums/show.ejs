@@ -18,19 +18,39 @@
 					<i><h1><%= album.title ? album.title : ''%></h1></i>
 					<h1>(<%= album.year ? album.year : '' %>)</h1>
 					<h6>Read more on <a href="<%= album.uri %>">Discogs</a></h6>
-					</div>
+				</div>
+
+	<!-- Button to add/remove am album to/from our collection -->
+	<% if (favoritedBy.some(u => {return u.email === user.email})) { %>
+		<form action="/albums/<%= album.id %>/collection?_method=DELETE" method="POST">
+		  <% } else { %>
+		<form action="/albums/<%= album.id %>/collection" method="POST">
+	  <% } %>
+	  <input type="text" hidden name="cover_image" value="<%= album.cover_image %>">
+	  <input type="text" hidden name="thumb" value="<%= album.thumb %>">
+		<input type="text" hidden name="title" value="<%= album.title %>">
+		<input type="text" hidden name="year" value="<%= album.year %>">
+		<input type="text" hidden name="id" value="<%= album.id %>">
+		<input type="text" hidden name="resource_url" value="<%= album.resource_url %>">
+		<button class="btn btn-warning"><%= favoritedBy.some(u => {return u.email === user.email}) ? "Remove from Collection" : "Add to Collection" %></button>
+		</form>
+
 				<!-- ICEBOX: Everything that comes up below is connected to the "masters" .get API function. In the future, with more time, I want to be able to render the options for "Artists", "Releases", and "Labels" requests; check each Postman link via Discogs API notation for future reference. -->
+				<p>
+				<div>
 				Genre: <h6><%= album.genres ? album.genres : '' %></h6>
 				Style: <h6><%= album.styles ? album.styles : '' %></h6>
-				Liner Notes: <h6><%= album.notes ? album.notes : '' %></h6>
+				Liner Notes: <h6><%= album.notes ? album.notes : 'N/A' %></h6>
+				</div>
+				</p>
 				<u><h6>Tracklist (A/B Sides):</h6></u>
 				<% album.tracklist.forEach(t => { %>
 					<div>
 						<p>
 							<%= t.position; %> - <b>"<%= t.title; %>"</b>
-							<br>
 							<!-- ICEBOX Some album don't have t.extraartists, so ... I WANT TO BE ABLE TO DISPLAY THIS STILL EVEN IF SOME DON'T SHOW IT, ONE DAY ...  -->
 							<!--
+								<br>
 								ejs	t.extraartists.forEach(ea => { ejs
 									-- ejsout ea.role ejs - ejsout ea.name ejs<br>
 								ejs }) ejs
@@ -51,19 +71,6 @@
 				<% }) %>
 			</div>
 		</div>
-	<!-- Button to add/remove am album to/from our collection -->
-	<% if (favoritedBy.some(u => {return u.email === user.email})) { %>
-		<form action="/albums/<%= album.id %>/collection?_method=DELETE" method="POST">
-		  <% } else { %>
-		<form action="/albums/<%= album.id %>/collection" method="POST">
-	  <% } %>
-	  <input type="text" hidden name="cover_image" value="<%= album.cover_image %>">
-	  <input type="text" hidden name="thumb" value="<%= album.thumb %>">
-		<input type="text" hidden name="title" value="<%= album.title %>">
-		<input type="text" hidden name="year" value="<%= album.year %>">
-		<input type="text" hidden name="id" value="<%= album.id %>">
-		<input type="text" hidden name="resource_url" value="<%= album.resource_url %>">
-		<button class="btn btn-warning"><%= favoritedBy.some(u => {return u.email === user.email}) ? "Remove from Collection" : "Add to Collection" %></button>
-		</form>
+
 </div>
 <%- include('../partials/footer') %>
