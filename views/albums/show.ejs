@@ -46,20 +46,34 @@
 							`https://api.discogs.com/masters/${req.params.id}`
 						) -->
 				<!-- also give /releases/ a shot, it still goes by the id... -->
-				Cover Image: <h6><%= album.cover_image ? album.cover_image : 'N/A'%></h6>
-				Thumb: <h6><%= album.thumb ? album.thumb : 'N/A' %></h6>
 				Genres: <h6><%= album.genres %></h6>
 				Discogs Link: <h6><%= album.uri %></h6>
 				Styles: <h6><%= album.styles %></h6>
 				Year: <h6><%= album.year %></h6>
 
-				Tracklist: <% album.tracklist.forEach(t => { %>
+				Tracklist: <!-- Returns multiple objects, still check this! --> 
+				<% album.tracklist.forEach(t => { %>
+					<%= t.position; %>
 					<%= t.title; %>
+					<% t.extraartists.forEach(ea => { %>
+						<%= ea.name; %>
+						<%= ea.role; %>
+				<%	}) %>
 				<% }) %>
 				
-				Artists: <h6><%= album.artists %></h6> <!-- Returns multiple objects --> 
+				Artists:
+				<% album.artists.forEach(a => { %>
+					<%= a.name; %>
+				<% }) %>
+
 				Notes: <h6><%= album.notes %></h6>
-				Videos: <h6><%= album.videos %></h6> <!-- Returns multiple objects --> 
+
+				Videos:
+				<% album.videos.forEach(v => { %>
+					<%= v.uri; %>
+					<%= v.title; %>
+					<%= v.description; %>
+				<% }) %>
 				
 				<h3>Specific to RELEASES Show API in addition to MASTERS</h3>
 				Extra Artists: <h6><%= album.extraartists %></h6> <!-- Returns multiple objects --> 
