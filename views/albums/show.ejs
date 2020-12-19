@@ -10,7 +10,13 @@
 			aria-labelledby="albuminfo-tab"
 		>
 			<div class="card-body">
-				<h1><%= album.title ? album.title : ''%></h1>
+				<!-- Everything that's going to come up no matter what .get is ued -->
+				<div>
+				<h1><%= album.title ? album.title : ''%> (<%= album.year %>)</h1>
+				Read more on <a href="<%= album.uri %>">Discogs</a>
+				</div>
+
+				<!-- Everything that comes up connected to the "artists" .get -->
 				<H2>(ARTISTS)</H2>
 				Members: <h6><%= album.members %></h6> <!-- Returns multiple objects --> 
 				Aliases: <h6><%= album.aliases %></h6> <!-- Returns multiple objects --> 
@@ -19,28 +25,31 @@
 				Profile: <h6><%= album.profile %></h6>
 				Name: <h6><%= album.name %></h6>
 				
-				<H2>(MASTERS)</H2>
-				Genres: <h6><%= album.genres %></h6>
-				Discogs Link: <h6><%= album.uri %></h6>
-				Styles: <h6><%= album.styles %></h6>
-				Year: <h6><%= album.year %></h6>
 
-				Tracklist: <!-- Returns multiple objects, still check this! --> 
-				<% album.tracklist.forEach(t => { %>
-					<%= t.position; %>
-					<%= t.title; %>
-					<% t.extraartists.forEach(ea => { %>
-						<%= ea.name; %>
-						<%= ea.role; %>
-				<%	}) %>
-				<% }) %>
-				
+				<!-- Everything that comes up connected to the "masters" .get -->
+				<H2>(MASTERS)</H2>
 				Artists:
 				<% album.artists.forEach(a => { %>
-					<%= a.name; %>
+					<h6><%= a.name; %></h6>
 				<% }) %>
 
-				Notes: <h6><%= album.notes %></h6>
+				Notes: <h6><%= album.notes ? album.notes : 'None availabe' %></h6>
+
+				Genres: <h6><%= album.genres %></h6>
+
+				Styles: <h6><%= album.styles %></h6>
+
+				<h6>Tracklist:</h6> <!-- Returns multiple objects, still check this! --> 
+				<% album.tracklist.forEach(t => { %>
+					<div>
+					<ul>
+					<li><b>"<%= t.title; %>" (<%= t.position; %>)</b></li>
+					<% t.extraartists.forEach(ea => { %>
+						-- <%= ea.role; %> - <%= ea.name; %><br>
+				<%	}) %>
+					</ul>
+					</div>
+				<% }) %>
 
 				Videos:
 				<% album.videos.forEach(v => { %>
@@ -49,6 +58,8 @@
 					<%= v.description; %>
 				<% }) %>
 				
+
+				<!-- Everything that comes up connected to the "releases" .get -->
 				<H2>(RELEASES)</H2>
 				Extra Artists: <h6><%= album.extraartists %></h6> <!-- Returns multiple objects --> 
 				Released: <h6><%= album.released %></h6>
