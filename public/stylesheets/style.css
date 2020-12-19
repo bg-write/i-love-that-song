@@ -1,20 +1,18 @@
 /*---- BG STYLE GUIDE FOR "I LOVE THAT SONG" ----*/
 /*
-Text: black
-Hover Text:
+Text: Lucida Grande, black
 Background: teal
 Backgound 2: aquamarine (need to update to match teal)
 Navigation: goldenrod & darkgoldenrod
-Footer:
+Footer: #FF745F (the logo color)
 */
-
 
 body {
 	/* Everything you see in the background! */
-	font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
+	font: 1rem 'Lucida Grande', Helvetica, Arial, sans-serif;
 	background-color: teal;
-	border: solid;
-	margin: 0;
+	margin-left: 0.5rem;
+	margin-right: 0.5rem;
 }
 
 nav {
@@ -41,21 +39,32 @@ nav {
 
 /*---- IDs (#) ----*/
 /*---- HEADER.EJS ----*/
+#headlineArea {
+	/* The area holding logo and copy above the nav bar */
+	margin: 0;
+	border: solid;
+}
+
 #logoPic {
 	/* coffee & music gif! */
-	width: 100px;
+	width: 1rem;
 	border: solid;
+	padding: 0;
 }
 
 #headlineText {
 	/* "I Love That Song" */
+	text-align: center;
+}
+
+#headlineText a {
+	/* the color of the link "I Love That Song" */
 	color: black;
 }
 
 #subheadlineText {
 	/* "Spend more time writing */
-	background-color: teal;
-	border: solid;
+	text-align: center;
 }
 
 #navbar {
@@ -77,28 +86,16 @@ nav {
 
 /*---- FOOTER.EJS ----*/
 #footer {
-	background-color: honeydew;
-	border: solid;
+	/* Everything you see in the footer! */
+	border: thick double black;
+	background-color: #ff745f;
+	text-align: center;
+	font-size: small;
+	padding: 0.5rem;
+	margin: 0.5rem;
 }
 
-#copyright {
-	background-color: indianred;
-	border: solid;
+#footer a {
+	/* Change the color of the links in teh footer */
+	color: white;
 }
-
-#apiCredit {
-	background-color: khaki;
-	border: solid;
-}
-
-#logoCredit {
-	background-color: lightpink;
-	border: solid;
-}
-
-#callToAction {
-	background-color: lightcoral;
-	border: solid;
-}
-
-/*---- Media Query ----*/
