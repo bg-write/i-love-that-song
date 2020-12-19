@@ -30,11 +30,6 @@
 	<div class="card-body">
 		<h3 class="card-title"><%= album.title ? album.title : 'N/A' %></h3>
 		<h5 class="card-text"><%= album.year ? album.year : '' %></h5>
-		<!-- This is just for testing and comparing -->
-		<h6 class="card-text">
-			resource_url: <%= album.resource_url ? album.resource_url : 'N/A' %>
-		</h6>
-		<h6 class="card-text">id: <%= album.id ? album.id : 'N/A' %></h6>
 
 		<!-- If album is a 'Masters', return MASTERS button -->
 		<% if (album.resource_url.includes('masters')) { %>
