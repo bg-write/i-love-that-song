@@ -1,23 +1,7 @@
 <%- include('../partials/header') %>
 
-<!-- TITLE HEADLINE -->
-<h1><%= album.title ? album.title : ''%></h1>
-
+<!-- The more details that pop up when you click on more info for an album -->
 <div class="card" style="width: 36rem">
-	<ul class="nav nav-tabs" id="myTab" role="tablist">
-		<li class="nav-item">
-			<a
-				class="nav-link active"
-				id="albuminfo-tab"
-				data-toggle="tab"
-				href="#albuminfo"
-				role="tab"
-				aria-controls="albuminfo"
-				aria-selected="true"
-				>Details</a
-			>
-		</li>
-	</ul>
 	<div class="tab-content" id="myTabContent">
 		<div
 			class="tab-pane fade show active"
@@ -26,14 +10,8 @@
 			aria-labelledby="albuminfo-tab"
 		>
 			<div class="card-body">
-				<H2>API INFO</H2>
-				id: <h6><%= album.id ? album.id : '' %></h6>
-				resource_url: <h6><%= album.resource_url ? album.resource_url : '' %></h6>
-				
-				<H2>IF I WANT TO STICK TO SEARCHING FOR ARTISTS</H2>
-				<!-- .get(
-							`https://api.discogs.com/artists/${req.params.id}`
-						) -->
+				<h1><%= album.title ? album.title : ''%></h1>
+				<H2>(ARTISTS)</H2>
 				Members: <h6><%= album.members %></h6> <!-- Returns multiple objects --> 
 				Aliases: <h6><%= album.aliases %></h6> <!-- Returns multiple objects --> 
 				Name Variations: <h6><%= album.namevariations %></h6>
@@ -41,11 +19,7 @@
 				Profile: <h6><%= album.profile %></h6>
 				Name: <h6><%= album.name %></h6>
 				
-				<H2>IF I WANT TO STICK TO SEARCHING FOR ALBUMS (MASTERS)</H2>
-				<!-- .get(
-							`https://api.discogs.com/masters/${req.params.id}`
-						) -->
-				<!-- also give /releases/ a shot, it still goes by the id... -->
+				<H2>(MASTERS)</H2>
 				Genres: <h6><%= album.genres %></h6>
 				Discogs Link: <h6><%= album.uri %></h6>
 				Styles: <h6><%= album.styles %></h6>
@@ -75,7 +49,7 @@
 					<%= v.description; %>
 				<% }) %>
 				
-				<h3>Specific to RELEASES Show API in addition to MASTERS</h3>
+				<H2>(RELEASES)</H2>
 				Extra Artists: <h6><%= album.extraartists %></h6> <!-- Returns multiple objects --> 
 				Released: <h6><%= album.released %></h6>
 				Country: <h6><%= album.country %></h6>
@@ -84,9 +58,6 @@
 				
 			</div>
 		</div>
-
-
-
 
 	<!-- Button to add/remove am album to/from our collection -->
 	<% if (favoritedBy.some(u => {return u.email === user.email})) { %>
