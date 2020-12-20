@@ -23,7 +23,7 @@
 <% if (results) { %> <% results.forEach(album => { %>
 <!-- ICEBOX This IF Statement allows me to return only MASTERS, based on my API call. In the future, I want to make my search more powerful to also render the different returns for RELEASES, ARTISTS, and LABELS. For now, this will do. -->
 <% if (album.resource_url.includes('masters')) { %>
-	<div id="albumSearchResults" class="card" style="width: 40rem">
+	<div id="albumSearchResults" class="card" style="width: 36rem">
 	<img
 		src="<%= album.cover_image ? album.cover_image : 'https://thumbs.dreamstime.com/z/funny-dog-wearing-wig-female-clothes-white-background-48441429.jpg' %>"
 		class="card-img-top"
