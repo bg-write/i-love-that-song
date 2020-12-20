@@ -24,7 +24,9 @@
 		<input type="text" hidden name="resource_url" value="<%= album.resource_url %>">
 		<button class="btn btn-lg"><%= favoritedBy.some(u => {return u.email === user.email}) ? "Remove from Collection" : "Add to Collection" %></button>
 	</form>
+	<br>
 <!-- ICEBOX: Everything that comes up below is connected to the "masters" .get API function. In the future, with more time, I want to be able to render the options for "Artists", "Releases", and "Labels" requests; check each Postman link via Discogs API notation for future reference. -->
+<!-- ICEBOX Get album covers to show up too (different API gets)-->
 <p>
 	<div>
 		Genre: <h6><%= album.genres ? album.genres.toLocaleString().split(',').join(', ') : '' %></h6>
@@ -32,6 +34,7 @@
 		Liner Notes: <h6><%= album.notes ? album.notes.toLocaleString().split(',').join(', ') : 'N/A' %></h6>
 	</div>
 	</p>
+		<!-- Returning tracklist-->
 		<u><h6>Tracklist (A/B Sides):</h6></u>
 		<% album.tracklist.forEach(t => { %>
 			<div>
@@ -47,20 +50,26 @@
 				</p>
 			</div>
 		<% }) %>
+
+
+
+		<!-- Returning videos, with if statement accounting for if she doesn't have any videos -->
 		<u><h6>Videos:</h6></u>
-			<% album.videos.forEach(v => { %>
-				<div>
-					<p>
-						<b><%= v.title ? v.title : '' %></b>
-					</p>
-					<p>
-						<iframe width="400" height="315"
-							src="https://www.youtube.com/embed/<%= v.uri.slice(-11) %>">
-						</iframe>
-					</p>
-				</div>
-				<br>
-			<% }) %>
+		<% if ("videos" in album) { %>
+		<% album.videos.forEach(v => { %>
+			<div>
+				<p>
+					<b><%= v.title ? v.title : '' %></b>
+				</p>
+				<p>
+					<iframe width="400" height="315"
+						src="https://www.youtube.com/embed/<%= v.uri.slice(-11) %>">
+					</iframe>
+				</p>
+			</div>
+			<br>
+		<% }) %>
+	<% } %>
 		</div>
 	</div>
 </div>
