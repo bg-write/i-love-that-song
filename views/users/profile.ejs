@@ -58,13 +58,11 @@
 				<form action="/users/profile?_method=PUT" method="POST">
 					<div class="form-row">
 						<div class="col-md-12">
-							<label for="bio">To Do's:</label>
-							<textarea rows="7" id="bio" class="form-control"  name="bio">
-							<%= user.bio %></textarea
-							>
+							<label for="bio">To-Do's</label>
+							<textarea class="form-control" id="bio" rows="7" name="bio"><%= user.bio %></textarea>
 						</div>
 					</div>
-					<button type="submit" class="btn btn-warning">Update</button>
+				<button type="submit" class="btn btn-warning">Update</button>
 				</form>
 			</div>
 		</div>
