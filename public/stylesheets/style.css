@@ -92,8 +92,8 @@ body {
 
 #logoPic {
 	/* coffee & music gif! */
-	width: 1rem;
 	padding: 0;
+	width: 1rem;
 }
 
 #headlineText {
@@ -233,6 +233,10 @@ body {
 #profileContainer {
 	background-color: white;
 	margin-left: 1rem;
+}
+
+#myTab {
+	background-color: teal;
 }
 
 /*---- SHOW.EJS ----*/
