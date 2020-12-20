@@ -29,37 +29,36 @@
 <!-- ICEBOX Get album covers to show up too (different API gets)-->
 <p>
 	<div>
-		Genre: <h6><%= album.genres ? album.genres.toLocaleString().split(',').join(', ') : '' %></h6>
-		Style: <h6><%= album.styles ? album.styles.toLocaleString().split(',').join(', ') : '' %></h6>
-		Liner Notes: <h6><%= album.notes ? album.notes.toLocaleString().split(',').join(', ') : 'N/A' %></h6>
+		<b>Genre</b> <h6><%= album.genres ? album.genres.toLocaleString().split(',').join(', ') : '' %></h6>
+		<b>Style</b> <h6><%= album.styles ? album.styles.toLocaleString().split(',').join(', ') : '' %></h6>
+		<b>Liner Notes</b> <h6><%= album.notes ? album.notes.toLocaleString().split(',').join(', ') : 'None Provided' %></h6>
 	</div>
 	</p>
-		<!-- Returning tracklist-->
-		<u><h6>Tracklist (A/B Sides):</h6></u>
+
+	<!-- Returning tracklist-->
+	<u><b>Tracklist: prformers and videos provided when possible</b></u><br>
 		<% album.tracklist.forEach(t => { %>
 			<div>
 				<p>
-					<%= t.position; %> - <b>"<%= t.title; %>"</b>
-					<!-- ICEBOX Some albums don't have t.extraartists, so ... I WANT TO BE ABLE TO DISPLAY THIS STILL EVEN IF SOME DON'T SHOW IT, ONE DAY ...  -->
-					<!--
+					<%= t.position; %>: "<%= t.title; %>"
 					<br>
-					ejs	t.extraartists.forEach(ea => { ejs
-					-- ejsout ea.role ejs - ejsout ea.name ejs<br>
-					ejs }) ejs
-					-->
+					<% if ("extraartists" in t) { %>
+					<% t.extraartists.forEach(ea => { %>
+					- <%= ea.role %> - <%= ea.name %>
+					<br>
+					<% }) %>
 				</p>
 			</div>
+			<% } %>
 		<% }) %>
+		<br>
 
-
-
-		<!-- Returning videos, with if statement accounting for if she doesn't have any videos -->
-		<u><h6>Videos:</h6></u>
+		<!-- Returning videos -->
 		<% if ("videos" in album) { %>
 		<% album.videos.forEach(v => { %>
 			<div>
 				<p>
-					<b><%= v.title ? v.title : '' %></b>
+					<%= v.title ? v.title : '' %>
 				</p>
 				<p>
 					<iframe width="400" height="315"
