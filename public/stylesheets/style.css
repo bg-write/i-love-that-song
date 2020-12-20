@@ -20,7 +20,7 @@ html {
 }
 
 :root {
-	font-size: 62.5%;
+	font-size: 68%;
 }
 
 body {
@@ -78,6 +78,7 @@ body {
 	/* BOOTSTRAP edit what happens when I hover over the button */
 	background-color: #ff745f;
 	text-decoration: none;
+	color: white;
 }
 
 .form-control {
@@ -207,6 +208,7 @@ body {
 }
 
 /*---- SHOW.EJS ----*/
+
 
 /*---- MESSAGES VIEWS ----*/
 /*---- INDEX.EJS ----*/
