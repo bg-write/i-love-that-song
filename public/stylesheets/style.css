@@ -42,13 +42,11 @@ body {
 /*---- Classes (.) ----*/
 .nav-item {
 	/* BOOTSTRAP The actual buttons! */
-	border: solid;
-	margin: -2px;
+	padding: .1rem;
 }
 
 .nav-link {
 	/* BOOTSTRAP The space inside the nav buttons, including color and text */
-	/* Used in: header.ejs */
 	background-color: goldenrod;
 	color: black;
 }
@@ -94,7 +92,7 @@ body {
 #logoPic {
 	/* coffee & music gif! */
 	padding: 0;
-	width: 1rem;
+	width: .1rem;
 }
 
 #headlineText {
@@ -117,9 +115,10 @@ body {
 
 #navbar {
 	/* The space holding all the nav buttons */
-	background-color: darkgoldenrod;
-	border: solid;
 	grid-area: navbar;
+	border: solid;
+	background-color: goldenrod;
+	text-align: center;
 	
 }
 
