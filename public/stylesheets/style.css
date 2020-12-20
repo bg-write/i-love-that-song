@@ -81,11 +81,6 @@ body {
 	color: white;
 }
 
-.form-control {
-	/* BOOTSTRAP What's actually inside the search bar */
-	font-style: italic;
-}
-
 /*---- IDs (#) ----*/
 /*---- HEADER.EJS ----*/
 #headlineArea {
@@ -209,7 +204,6 @@ body {
 
 /*---- SHOW.EJS ----*/
 
-
 /*---- MESSAGES VIEWS ----*/
 /*---- INDEX.EJS ----*/
 /*---- SHOW.EJS ----*/
@@ -217,4 +211,14 @@ body {
 /*---- USERS VIEWS ----*/
 /*---- INDEX.EJS ----*/
 /*---- PROFILE.EJS ----*/
+#profileTitle {
+	font-size: x-large;
+	padding: 1rem;
+}
+
+#profileContainer {
+	background-color: white;
+	margin-left: 1rem;
+}
+
 /*---- SHOW.EJS ----*/
