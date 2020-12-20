@@ -27,10 +27,9 @@
 <!-- ICEBOX: Everything that comes up below is connected to the "masters" .get API function. In the future, with more time, I want to be able to render the options for "Artists", "Releases", and "Labels" requests; check each Postman link via Discogs API notation for future reference. -->
 <p>
 	<div>
-		<!-- ICEBOX: Be able to properly separate the commas in these unedited strings, and link when I need to in the liner notes. -->
-		Genre: <h6><%= album.genres ? album.genres : '' %></h6>
-		Style: <h6><%= album.styles ? album.styles : '' %></h6>
-		Liner Notes: <h6><%= album.notes ? album.notes : 'N/A' %></h6>
+		Genre: <h6><%= album.genres ? album.genres.toLocaleString().split(',').join(', ') : '' %></h6>
+		Style: <h6><%= album.styles ? album.styles.toLocaleString().split(',').join(', ') : '' %></h6>
+		Liner Notes: <h6><%= album.notes ? album.notes.toLocaleString().split(',').join(', ') : 'N/A' %></h6>
 	</div>
 	</p>
 		<u><h6>Tracklist (A/B Sides):</h6></u>
