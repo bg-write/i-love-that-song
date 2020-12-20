@@ -10,10 +10,14 @@ Link to original Trello board: https://trello.com/b/ELs21E3z
 
 ## Screenshots
 
-### Landing page
-![landing page](imgur)
+### Landing Page
+![landing page](https://imgur.com/nk4PiKm)
 --
-###
+### Album Search
+![album search](https://imgur.com/undefined)
+
+### Album Details
+![album details](https://imgur.com/YHk77vT)
 
 ## What This App Can Do
 
@@ -61,10 +65,10 @@ Link to original Trello board: https://trello.com/b/ELs21E3z
 
 ## Next Steps (Icebox)
 
-- Flesh out media query for both mobile and large desktop view
-- Fix error page issue to give user more clear direction on where to go after encountering a potential issue
+- Flesh out media query for both mobile and large desktop view.
+- Fix error page issue to give user more clear direction on where to go after encountering a potential issue.
 - Do a second pass on overall styling, especially of message board and profile page.
-- Populate more options and types of releases in music search function; right now, you can only search for albums ("masters"), but the API also contains information on "artists", "labels", and "releases" (singles and EPs).
+- Populate more options and types of releases in music search function; right now, you can only search for albums ("masters"), but the API also contains information on "artists", "labels", and "releases" (singles and EPs). This relates into the issue of not being able to populate album artwork one's collection or album details page.
 - Expand user login capabilities to also incorporate Discogs accounts; if you log into the app through Discogs, your saved albums will automatically pop up.
 - Allow users to write, delete, and update reviews on specific albums on the album details page.
 - Expand users interaction with abilities to follow/unfollow other writers and see their reviews and saved albums.
