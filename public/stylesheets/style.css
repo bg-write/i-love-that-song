@@ -28,7 +28,6 @@ body {
 	font: 1rem 'Lucida Grande', Helvetica, Arial, sans-serif;
 	background-color: teal;
 	margin: 0;
-	padding: 1rem;
 	display: grid;
 	height: 100vh;
 	grid-template-columns: auto;
@@ -85,15 +84,15 @@ body {
 /*---- HEADER.EJS ----*/
 #headlineArea {
 	/* the space holding logo and headline text */
-	border: solid;
 	margin: 0;
+	background-color: #ff745f;
+	border: solid;
 	grid-area: headlineArea;
 }
 
 #logoPic {
 	/* coffee & music gif! */
 	width: 1rem;
-	border: solid;
 	padding: 0;
 }
 
@@ -112,6 +111,7 @@ body {
 	/* "Spend more time writing */
 	text-align: center;
 	font-size: large;
+	font-style: italic;
 }
 
 #navbar {
@@ -136,6 +136,15 @@ body {
 	/* Editing colors when hovering over nav bar */
 	background-color: #ff745f;
 	color: white;
+}
+
+#signIn {
+	/* The space to sing in for the first time */ 
+	border: none;
+}
+
+#signIn a {
+	background-color: darkgoldenrod;
 }
 
 /*---- FOOTER.EJS ----*/
@@ -165,6 +174,11 @@ body {
 
 /*---- ERROR.EJS ----*/
 /*---- INDEX.EJS ----*/
+#welcomeMessage {
+	font-size: x-large;
+	padding: 1rem;
+	text-align: center;
+}
 
 /*---- ALBUMS VIEWS ----*/
 /*---- INDEX.EJS ----*/
