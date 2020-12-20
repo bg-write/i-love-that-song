@@ -43,6 +43,7 @@ body {
 .nav-item {
 	/* BOOTSTRAP The actual buttons! */
 	border: solid;
+	margin: -2px;
 }
 
 .nav-link {
@@ -119,6 +120,7 @@ body {
 	background-color: darkgoldenrod;
 	border: solid;
 	grid-area: navbar;
+	
 }
 
 #navbar ul {
@@ -130,6 +132,7 @@ body {
 #navbar li {
 	/* Keeping buttons reading side-to-side, include of default column view */
 	display: inline-block;
+	justify-items: center;
 }
 
 #navbar a:hover {
@@ -138,13 +141,9 @@ body {
 	color: white;
 }
 
-#signIn {
-	/* The space to sing in for the first time */ 
-	border: none;
-}
-
 #signIn a {
-	background-color: darkgoldenrod;
+	/*  the button where I log in and out of Google */
+	background-color: goldenrod;
 }
 
 /*---- FOOTER.EJS ----*/
@@ -177,12 +176,16 @@ body {
 #welcomeMessage {
 	font-size: x-large;
 	padding: 1rem;
-	text-align: center;
 }
 
 /*---- ALBUMS VIEWS ----*/
 /*---- INDEX.EJS ----*/
 #indexTitle {
+	font-size: x-large;
+	padding: 1rem;
+}
+
+#albumCollection {
 	font-size: x-large;
 	padding: 1rem;
 }

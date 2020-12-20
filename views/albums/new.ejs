@@ -1,7 +1,9 @@
 <%- include('../partials/header') %>
 
 <!-- When searching for a new album ...-->
-<h3 id="newTitle">Find An Album</h3>
+<h1 id="welcomeMessage">
+	<%= user ? `Hello, ${user.name}! Let's look for an album.` : "You're about to hear something great." %>
+</h1>
 <h6 id="newSubtitle">(Artist, singles, and label search coming soon!)</h6>
 
 <form action="/albums/search" method="POST">
