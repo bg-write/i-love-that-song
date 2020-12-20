@@ -1,10 +1,11 @@
-/*---- BG STYLE GUIDE FOR "I LOVE THAT SONG" ----*/
+/*---- BG STYLE GUIDE: "I LOVE THAT SONG" ----*/
 /*
-Text: Lucida Grande, black
-Background: teal
-Backgound 2: aquamarine (need to update to match teal)
-Navigation: goldenrod & darkgoldenrod
-Footer: #FF745F (the logo color)
+Font: Amatic SC (header), monospace, black
+Colors (and alt):
+--teal
+--#ffc45f (golden color)
+--#FF745F (header salmon-like color)
+--white
 */
 
 html {
@@ -25,7 +26,7 @@ html {
 
 body {
 	/* Everything you see in the background! */
-	font: 1rem 'Lucida Grande', Helvetica, Arial, sans-serif;
+	font: 1rem monospace, 'Amatic SC', 'Lucida Grande', Helvetica, Arial, sans-serif;
 	background-color: teal;
 	margin: 0;
 	display: grid;
@@ -39,7 +40,7 @@ body {
 		'footer';
 }
 
-/*---- Classes (.) ----*/
+/*---------------------- Classes (.) -------------------*/
 .nav-item {
 	/* BOOTSTRAP The actual buttons! */
 	padding: .1rem;
@@ -47,7 +48,7 @@ body {
 
 .nav-link {
 	/* BOOTSTRAP The space inside the nav buttons, including color and text */
-	background-color: goldenrod;
+	background-color: #ffc45f;
 	color: black;
 }
 
@@ -69,7 +70,7 @@ body {
 .btn-lg {
 	/* BOOTSTRAP edit the content inside the button */
 	color: black;
-	background-color: goldenrod;
+	background-color: #ffc45f;
 }
 
 .btn-lg:hover {
@@ -79,7 +80,7 @@ body {
 	color: white;
 }
 
-/*---- IDs (#) ----*/
+/*----------------------- IDs (#) ----------------------*/
 /*---- HEADER.EJS ----*/
 #headlineArea {
 	/* the space holding logo and headline text */
@@ -98,7 +99,8 @@ body {
 #headlineText {
 	/* "I Love That Song" */
 	text-align: center;
-	font-size: x-large;
+	font-size: 3.8rem;
+	font-family: 'Amatic SC', monospace;
 }
 
 #headlineText a {
@@ -111,13 +113,15 @@ body {
 	text-align: center;
 	font-size: large;
 	font-style: italic;
+	font-family: 'Amatic SC', monospace;
+	font-size: 2rem;
 }
 
 #navbar {
 	/* The space holding all the nav buttons */
 	grid-area: navbar;
 	border: solid;
-	background-color: goldenrod;
+	background-color: #ffc45f;
 	text-align: center;
 	
 }
@@ -142,7 +146,7 @@ body {
 
 #signIn a {
 	/*  the button where I log in and out of Google */
-	background-color: goldenrod;
+	background-color: #ffc45f;
 }
 
 /*---- FOOTER.EJS ----*/
@@ -152,7 +156,7 @@ body {
 	background-color: #ff745f;
 	text-align: center;
 	font-size: small;
-	padding: 1rem;
+	padding-top: 1rem;
 	grid-area: footer;
 }
 
@@ -218,14 +222,7 @@ body {
 	margin-left: 1rem;
 }
 
-/*---- SHOW.EJS ----*/
-
-/*---- MESSAGES VIEWS ----*/
-/*---- INDEX.EJS ----*/
-/*---- SHOW.EJS ----*/
-
 /*---- USERS VIEWS ----*/
-/*---- INDEX.EJS ----*/
 /*---- PROFILE.EJS ----*/
 #profileTitle {
 	font-size: x-large;
@@ -240,5 +237,3 @@ body {
 #myTab {
 	background-color: teal;
 }
-
-/*---- SHOW.EJS ----*/
