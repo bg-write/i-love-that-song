@@ -1,6 +1,6 @@
 # I Love That Song
 
-The app helping music journalists organize the music and information they need for research. Inspired by [Discogs](https://www.discogs.com/), this full-CRUD app pulls from the Discogs API and returns data on every album available in its database. "I Love That Song" was created as my General Assembly Unit 2 Project, building in one week a full-stack application from scratch using Node, Express, MongoDD, and Mongoose. (See icebox below for new features currently in development.)
+The app helping music journalists organize the music they need for research. Inspired by [Discogs](https://www.discogs.com/), this full-CRUD app pulls from its API and returns data on every album available in its database. "I Love That Song" was created as my General Assembly Unit 2 Project, building in one week a full-stack application from scratch using Node, Express, MongoDD, and Mongoose. (See icebox below for new features currently in development.)
 
 ## Getting Started
 
@@ -11,13 +11,13 @@ Link to original Trello board: https://trello.com/b/ELs21E3z
 ## Screenshots
 
 ### Landing Page
-![landing page](https://imgur.com/nk4PiKm)
+![landing page](https://i.imgur.com/nk4PiKm.png)
 --
 ### Album Search
-![album search](https://imgur.com/undefined)
+![album search](https://i.imgur.com/MRH0HG9.png)
 
 ### Album Details
-![album details](https://imgur.com/YHk77vT)
+![album details](https://i.imgur.com/YHk77vT.png)
 
 ## What This App Can Do
 
