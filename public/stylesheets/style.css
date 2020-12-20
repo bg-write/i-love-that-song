@@ -68,15 +68,21 @@ body {
 	color: black;
 }
 
-.btn {
+.btn-lg {
 	/* BOOTSTRAP edit the content inside the button */
 	color: black;
 	background-color: goldenrod;
 }
 
-.btn:hover {
+.btn-lg:hover {
 	/* BOOTSTRAP edit what happens when I hover over the button */
-	background-color: #FF745F;
+	background-color: #ff745f;
+	text-decoration: none;
+}
+
+.form-control {
+	/* BOOTSTRAP What's actually inside the search bar */
+	font-style: italic;
 }
 
 /*---- IDs (#) ----*/
@@ -98,6 +104,7 @@ body {
 #headlineText {
 	/* "I Love That Song" */
 	text-align: center;
+	font-size: x-large;
 }
 
 #headlineText a {
@@ -108,6 +115,7 @@ body {
 #subheadlineText {
 	/* "Spend more time writing */
 	text-align: center;
+	font-size: large;
 }
 
 #navbar {
@@ -130,7 +138,7 @@ body {
 
 #navbar a:hover {
 	/* Editing colors when hovering over nav bar */
-	background-color: #FF745F;
+	background-color: #ff745f;
 	color: white;
 }
 
@@ -170,6 +178,34 @@ body {
 }
 
 /*---- NEW.EJS ----*/
+#newTitle {
+	font-size: x-large;
+	padding: 1rem;
+}
+
+#newSubtitle {
+	font-size: large;
+	padding-left: 1rem;
+	padding-bottom: 1rem;
+	font-style: italic;
+}
+
+#searchBar {
+	/* Searching for a new album */
+	margin-left: 1rem;
+}
+
+#searchButton {
+	/* Press the button to actually search for a new album */
+	margin-left: 1rem;
+	margin-bottom: 1rem;
+}
+
+#albumSearchResults {
+	/* The actual albums that come up in a search */
+	margin-left: 1rem;
+}
+
 /*---- SHOW.EJS ----*/
 
 /*---- MESSAGES VIEWS ----*/

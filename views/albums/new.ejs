@@ -1,13 +1,12 @@
 <%- include('../partials/header') %>
 
 <!-- When searching for a new album ...-->
-
-<h3>Find An Album</h3>
-<h6>(Artist, singles, and label search coming soon!)</h6>
+<h3 id="newTitle">Find An Album</h3>
+<h6 id="newSubtitle">(Artist, singles, and label search coming soon!)</h6>
 
 <form action="/albums/search" method="POST">
 	<div class="form-row">
-		<div class="col-md-4">
+		<div id="searchBar" class="col-7">
 			<input
 				type="text"
 				class="form-control"
@@ -16,22 +15,23 @@
 			>
 		</div>
 	</div>
-	<button type="submit" class="btn btn-success">Search</button>
+	<button id="searchButton" type="submit" class="btn-lg btn-success">Search</button>
 </form>
 <!-- How the called API output looks on screen -->
 <% if (results) { %> <% results.forEach(album => { %>
 <!-- ICEBOX This IF Statement allows me to return only MASTERS, based on my API call. In the future, I want to make my search more powerful to also render the different returns for RELEASES, ARTISTS, and LABELS. For now, this will do. -->
 <% if (album.resource_url.includes('masters')) { %>
-<div class="card" style="width: 18rem">
+	<div id="albumSearchResults" class="card" style="width: 42rem">
 	<img
 		src="<%= album.cover_image ? album.cover_image : 'https://thumbs.dreamstime.com/z/funny-dog-wearing-wig-female-clothes-white-background-48441429.jpg' %>"
 		class="card-img-top"
-		alt="..."
+		alt="album cover"
 	/>
 	<div class="card-body">
-		<h3 class="card-title"><%= album.title ? album.title : 'N/A' %></h3>
-		<h5 class="card-text"><%= album.year ? album.year : '' %></h5>
-		<a href="/albums/<%= album.id %>" class="btn btn-primary">GET INFO</a>
+		<h1 class="card-title"><%= album.title ? album.title : 'N/A' %></h1>
+		<h2 class="card-text"><%= album.year ? album.year : '' %></h2>
+		<br>
+		<a href="/albums/<%= album.id %>" class="btn-lg btn-primary">MORE INFO</a>
 	</div>
 </div>
 <% } else { %> <% return '' %> <% } %> <% }) %> <% } %> <%-
