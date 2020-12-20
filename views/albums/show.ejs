@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 <!-- The more details that pop up when you click on more info for an album -->
-<div class="card card-body">
+<div class="card card-body" id="fullAlbumDetails">
 <!-- Everything that's going to come up no matter what .get is ued -->
 	<div>
 	<% album.artists.forEach(a => { %>
@@ -31,7 +31,7 @@
 	<div>
 		<b>Genre</b> <h6><%= album.genres ? album.genres.toLocaleString().split(',').join(', ') : '' %></h6>
 		<b>Style</b> <h6><%= album.styles ? album.styles.toLocaleString().split(',').join(', ') : '' %></h6>
-		<b>Liner Notes</b> <h6><%= album.notes ? album.notes.toLocaleString().split(',').join(', ') : 'None Provided' %></h6>
+		<b>Liner Notes</b> <h6><%= album.notes ? album.notes.toLocaleString().split(',').join(', ').replace(/\s*\[.*?\]\s*/g, ' DISCOGS-LINK ') : 'None Provided' %></h6>
 	</div>
 	</p>
 
