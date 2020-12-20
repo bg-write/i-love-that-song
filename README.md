@@ -1,6 +1,6 @@
 # I Love That Song
 
-The app helping music journalists organize the music they need for research. (In development.)
+The app helping music journalists organize the music and information they need for research. (In development.) Inspired by [Discogs](https://www.discogs.com/), this full-CRUD app pulls from the Discogs API to return data on every album available in its database. "I Love That Song" was created as my General Assembly Unit 2 Project, building in one week a full-stack application from scratch using Node, Express, MongoDD, and Mongoose.
 
 ## Getting Started
 
@@ -16,12 +16,9 @@ Link to original Trello board: https://trello.com/b/ELs21E3z
 
 ## What This App Can Do
 
-- Sign in and out through Google, saving your information
-- Full CRURD, including:
-- CREATE
-- READ
-- UPDATE
-- DELETE
+- Sign in and out through Google, saving your information even if you log out.
+- Create and update your personalized album collection, to-do's (or to-listen) list, and message board posts asking other users about what albums to find to help with their research. (Don't worry, you can delete your posts.)
+- Search and read up on some of your favorite albums, including: genre, style, liner notes, tracklist, credited musicians, in-app YouTube streaming, and more.
 - App's features demonstrated using the preferred user
 
 ## The Code Itself

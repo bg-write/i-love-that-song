@@ -1,6 +1,9 @@
 <%- include('../partials/header') %>
 <!-- My "My Profile" page-->
-<h3 id="profileTitle"><%= title %></h3>
+<h1 id="welcomeMessage">
+	<%= user ? `${user.name}, this is your fancy profile page.` : "You're about to hear something great." %>
+</h1>
+<h6 id="newSubtitle">(More features in development.)</h6>
 
 <!-- The container holding both tabs -->
 <div id="profileContainer" style="width: 37rem">
