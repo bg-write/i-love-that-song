@@ -1,22 +1,21 @@
 <%- include('../partials/header') %>
 
 <p>
-<h3>Message Board (Don't Be THAT Person)</h3>
-<form action="/messages" method="POST">
-	<div class="form-group">
-		<input
-			type="text"
-			class="form-control"
-			aria-describedby="message"
-			name="title"
-			placeholder="What do you want to know ..."
-			required
-		/>
-	</div>
+	<h3>Message Board (Don't Be THAT Person)</h3>
+	<form action="/messages" method="POST">
+		<div class="form-group">
+			<input
+				type="text"
+				class="form-control"
+				aria-describedby="message"
+				name="title"
+				placeholder="What do you want to know ..."
+				required
+			/>
+		</div>
 	<button type="submit" class="btn btn-success">Create Post</button>
-</form>
+	</form>
 </p>
-
 <div>
 	<h5>RECENT POSTS</h5>
 	<% messages.forEach(message => { %>
@@ -24,9 +23,9 @@
 		<div class="card-body">
 			<h4 class="card-title"><%= message.title %></h4>
 			<p>
-			By <%= message.postedBy %><br>
-			Originally posted: <%= message.createdAt.toLocaleString()%>
-		</p>
+				By <%= message.postedBy %><br>
+				Originally posted: <%= message.createdAt.toLocaleString()%>
+			</p>
 			<a href="/messages/<%= message._id %>" class="btn btn-primary"
 				>See Post</a
 			>

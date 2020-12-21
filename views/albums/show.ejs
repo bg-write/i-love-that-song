@@ -1,7 +1,8 @@
 <%- include('../partials/header') %>
+
 <!-- The more details that pop up when you click on more info for an album -->
 <div class="card card-body" id="fullAlbumDetails">
-<!-- Everything that's going to come up no matter what .get is ued -->
+	<!-- Everything that's going to come up no matter what .get is ued -->
 	<div>
 	<% album.artists.forEach(a => { %>
 		<h1><%= a.name ? a.name : '' %></h1>
@@ -10,7 +11,7 @@
 		<h1><%= album.year ? album.year : '' %></h1>
 		<h6>Read more on <a href="<%= album.uri %>">Discogs</a></h6>
 	</div>
-<!-- Button to add/remove am album to/from our collection -->
+	<!-- Button to add/remove am album to/from our collection -->
 	<% if (favoritedBy.some(u => {return u.email === user.email})) { %>
 	<form action="/albums/<%= album.id %>/collection?_method=DELETE" method="POST">
 		<% } else { %>
@@ -72,4 +73,5 @@
 		</div>
 	</div>
 </div>
+
 <%- include('../partials/footer') %>

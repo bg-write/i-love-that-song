@@ -58,6 +58,7 @@ function show(req, res) {
 		});
 }
 
+// ICEBOX: Render a "Friend List"; V1 incorporates this logic yet does not display on the screen.
 function addFriend(req, res) {
 	req.user.friends.push(req.params.id);
 	req.user
@@ -70,6 +71,7 @@ function addFriend(req, res) {
 		});
 }
 
+// ICEBOX: Render a "Friend List"; V1 incorporates this logic yet does not display on the screen.
 function removeFriend(req, res) {
 	let idx = req.user.friends.indexOf(req.params.id);
 	req.user.friends.splice(idx, 1);

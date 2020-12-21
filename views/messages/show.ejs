@@ -1,18 +1,18 @@
 <%- include('../partials/header') %>
 <!-- The original message -->
 <p>
-<h2>"<%= message.title %>"</h2>
+	<h2>"<%= message.title %>"</h2>
 	Original post: <b><%= message.postedBy %></b> [<%=
 	message.createdAt.toLocaleString() %>]
 </p>
 
 <!-- Logic for working with replies-->
 <p>
-<h6><u>REPLIES</u></h6>
-<% message.replies.forEach(reply => { %>
+	<h6><u>REPLIES</u></h6>
+	<% message.replies.forEach(reply => { %>
 	"<%= reply.message %>" - <b><%= reply.postedBy %></b> [<%= reply.createdAt.toLocaleString() %>]
-<!-- Deleting a reply -->
-<% if (user.name === reply.postedBy){ %>
+	<!-- Deleting a reply -->
+	<% if (user.name === reply.postedBy){ %>
 	<form action="/messages/<%= message._id %>/<%= reply._id %>?_method=DELETE" class="delete-form" method="POST">
 	<button type="submit">X</button>
 	</form>	

@@ -19,6 +19,7 @@
 	</div>
 	<button id="searchButton" type="submit" class="btn-lg btn-success">Search</button>
 </form>
+
 <!-- How the called API output looks on screen -->
 <% if (results) { %> <% results.forEach(album => { %>
 <!-- ICEBOX This IF Statement allows me to return only MASTERS, based on my API call. In the future, I want to make my search more powerful to also render the different returns for RELEASES, ARTISTS, and LABELS. For now, this will do. -->

@@ -1,5 +1,5 @@
 <%- include('../partials/header') %>
-<!-- ICEBOX For every album already in My Collection and how I wish to style it ... I want to add photos in here -->
+<!-- ICEBOX For every album already in My Collection and how I wish to style it ... I want to add photos in here. I also want to return multiple types of cards; current long IF statement returns only cards associated with "Masters" gets. -->
 
 <u><h3 id="indexTitle"><%= title %></h3></u>
 
@@ -8,10 +8,10 @@
 	<div>
 		<div>
 			<h4 class="card-title">
-			<%= album.title ? album.title : '' %> (<%= album.year ? album.year : ''
+				<%= album.title ? album.title : '' %> (<%= album.year ? album.year : ''
 				%>) - 
-			<!-- If album is a 'Masters', return MASTERS button -->
-			<% if (album.resource_url.includes('masters')) { %>
+				<!-- If album is a 'Masters', return MASTERS button -->
+				<% if (album.resource_url.includes('masters')) { %>
 				<a href="/albums/<%= album.id %>" class="btn-sm btn-warning">MORE INFO</a>
 				<% } %>
 				<!-- If album is a 'Releases', return RELEASES button -->

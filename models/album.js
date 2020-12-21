@@ -13,6 +13,7 @@ const reviewSchema = new Schema(
 	}
 );
 
+// ICEBOX comb through updated albumSchema and take out any keys that are not being used after updating search function.
 const albumSchema = new Schema(
 	{
 		title: String,

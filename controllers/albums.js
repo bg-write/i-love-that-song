@@ -41,7 +41,7 @@ function search(req, res) {
 function show(req, res) {
 	axios
 		.get(`https://api.discogs.com/masters/${req.params.id}`)
-		// ICEBOX axios .get chain? Promises lecture. Ideally, I'd like to combine the following:
+		// ICEBOX using multiple GETS, I'd like to combine the following:
 		// .get(`https://api.discogs.com/masters/${req.params.id}`)
 		// .get(`https://api.discogs.com/releases/${req.params.id}`)
 		// .get(`https://api.discogs.com/artists/${req.params.id}`)
@@ -78,6 +78,7 @@ function show(req, res) {
 		});
 }
 
+// ICEBOX: Render a "Listen List"; V1 incorporates this logic yet does not display on the screen.
 function addToListenList(req, res) {
 	req.user.listenList.push(req.body);
 	req.user
@@ -90,6 +91,7 @@ function addToListenList(req, res) {
 		});
 }
 
+// ICEBOX: Render a "Listen List"; V1 incorporates this logic yet does not display on the screen.
 function removeFromListenList(req, res) {
 	let idx = req.user.listenList.findIndex((a) => a.id === req.params.id);
 	req.user.listenList.splice(idx, 1);
