@@ -179,6 +179,7 @@ body {
 #welcomeMessage {
 	font-size: x-large;
 	padding: 1rem;
+	text-align: center;
 }
 
 /*---- ALBUMS VIEWS ----*/
@@ -194,6 +195,11 @@ body {
 }
 
 /*---- NEW.EJS ----*/
+#welcomeMessageSearch {
+	font-size: x-large;
+	padding: 1rem;
+}
+
 #newTitle {
 	font-size: x-large;
 	padding: 1rem;
