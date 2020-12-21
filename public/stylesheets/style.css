@@ -50,6 +50,8 @@ body {
 	/* BOOTSTRAP The space inside the nav buttons, including color and text */
 	background-color: #ffc45f;
 	color: black;
+	font-family: 'Amatic SC', monospace;
+	font-size: x-large;
 }
 
 .card {
@@ -155,9 +157,10 @@ body {
 	border: thick double black;
 	background-color: #ff745f;
 	text-align: center;
-	font-size: small;
+	font-size: large;
 	padding-top: 1rem;
 	grid-area: footer;
+	font-family: 'Amatic SC', monospace;
 }
 
 #footer a {
@@ -187,6 +190,7 @@ body {
 #indexTitle {
 	font-size: x-large;
 	padding: 1rem;
+	text-align: center;
 }
 
 #albumCollection {
@@ -230,6 +234,12 @@ body {
 
 /*---- USERS VIEWS ----*/
 /*---- PROFILE.EJS ----*/
+#welcomeMessageProfile {
+	font-size: x-large;
+	padding: 1rem;
+	text-align: left;
+}
+
 #profileTitle {
 	font-size: x-large;
 	padding: 1rem;
@@ -242,4 +252,24 @@ body {
 
 #myTab {
 	background-color: teal;
+}
+
+#profileinfo-tab {
+	font-family: monospace, 'Amatic SC';
+	font-size: 1rem;
+}
+
+#updateinfo-tab {
+	font-family: monospace, 'Amatic SC';
+	font-size: 1rem;
+}
+
+
+
+/*---- MESSAGES VIEWS ----*/
+/*---- INDEX.EJS ----*/
+#welcomeMessageMessageBoard {
+	font-size: x-large;
+	padding-bottom: 1rem;
+	text-align: center;
 }

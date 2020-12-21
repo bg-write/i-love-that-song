@@ -143,7 +143,7 @@ function index(req, res) {
 	Album.find({ favoritedBy: req.user._id })
 		.then((albums) => {
 			res.render('albums/index', {
-				title: 'Music Collection',
+				title: 'Album Collection',
 				user: req.user,
 				albums,
 			});
