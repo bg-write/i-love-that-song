@@ -31,6 +31,7 @@ function showProfile(req, res) {
 		});
 }
 
+// ICEBOX: Tweaked UI to only allow user to update their To-Do's, will update accordingly
 function update(req, res) {
 	User.findByIdAndUpdate(req.user._id, req.body, { new: true })
 		.then(() => {

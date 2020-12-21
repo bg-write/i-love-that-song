@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+// ICEBOX comb through updated listenListSchema and take out any keys that are not being used after updating the listen collection function.
 const listenListSchema = new Schema(
 	{
 		title: String,
