@@ -1,25 +1,31 @@
 <%- include('../partials/header') %>
 <!-- The original message from a message board -->
-
-<p>
+<div class="card">
+	<div class="card-body">
+		<p>
 	<h2>"<%= message.title %>"</h2>
 	Original post: <b><%= message.postedBy %></b> [<%=
 	message.createdAt.toLocaleString() %>]
-</p>
+		</p>
+	</div>
+</div>
 
 <!-- Logic for working with replies-->
 <p>
-	<h6><u>REPLIES</u></h6>
-	<% message.replies.forEach(reply => { %>
-	"<%= reply.message %>" - <b><%= reply.postedBy %></b> [<%= reply.createdAt.toLocaleString() %>]
-	<!-- Deleting a reply -->
-	<% if (user.name === reply.postedBy){ %>
-	<form action="/messages/<%= message._id %>/<%= reply._id %>?_method=DELETE" class="delete-form" method="POST">
-	<button type="submit">X</button>
-	</form>	
-	<% } %>
+	<h3 id="replyHeadline"><u>REPLIES</u></h3>
+	<div id="replyMessages">
+		<% message.replies.forEach(reply => { %>
+		"<%= reply.message %>" - <b><%= reply.postedBy %></b> [<%= reply.createdAt.toLocaleString() %>]
+		<!-- Deleting a reply -->
+		<% if (user.name === reply.postedBy){ %>
+		<form action="/messages/<%= message._id %>/<%= reply._id %>?_method=DELETE" class="delete-form" method="POST">
+		<button id="deleteButton" type="submit">X</button>
+		</form>
+		<% } %>
+		<hr>	
+		<% }) %>
+	</div>
 </p>
-<% }) %>
 
 <form action="/messages/<%= message._id %>" method="POST">
 	<div class="form-group">

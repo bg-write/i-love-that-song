@@ -26,7 +26,8 @@ html {
 
 body {
 	/* Everything you see in the background! */
-	font: 1rem monospace, 'Amatic SC', 'Lucida Grande', Helvetica, Arial, sans-serif;
+	font: 1rem monospace, 'Amatic SC', 'Lucida Grande', Helvetica, Arial,
+		sans-serif;
 	background-color: teal;
 	margin: 0;
 	display: grid;
@@ -43,7 +44,7 @@ body {
 /*---------------------- Classes (.) -------------------*/
 .nav-item {
 	/* BOOTSTRAP The actual buttons! */
-	padding: .1rem;
+	padding: 0.1rem;
 }
 
 .nav-link {
@@ -95,7 +96,7 @@ body {
 #logoPic {
 	/* coffee & music gif! */
 	padding: 0;
-	width: .1rem;
+	width: 0.1rem;
 }
 
 #headlineText {
@@ -125,7 +126,6 @@ body {
 	border: solid;
 	background-color: #ffc45f;
 	text-align: center;
-	
 }
 
 #navbar ul {
@@ -264,8 +264,6 @@ body {
 	font-size: 1rem;
 }
 
-
-
 /*---- MESSAGES VIEWS ----*/
 /*---- INDEX.EJS ----*/
 #welcomeMessageMessageBoard {
@@ -276,4 +274,19 @@ body {
 
 #helpLink {
 	color: white;
+}
+
+/*---- SHOW.EJS ----*/
+#replyHeadline {
+	margin: 1rem;
+}
+
+#replyMessages {
+	margin: 1rem;
+	font-size: medium;
+}
+
+#deleteButton {
+	font-size: x-small;
+	margin-left: 1rem;
 }
