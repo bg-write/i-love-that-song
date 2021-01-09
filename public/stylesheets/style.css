@@ -290,3 +290,18 @@ body {
 	font-size: x-small;
 	margin-left: 1rem;
 }
+
+/*---------------- Media Queries ----------------------------*/
+@media only screen and (max-width: 767px) {
+	#albumSearchResults {
+		width: auto;
+	}
+
+	#fullAlbumDetails {
+		width: auto;
+	}
+
+	#albumCollection {
+		width: auto;
+	}
+}
