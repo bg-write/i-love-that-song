@@ -11,6 +11,7 @@
 		<h1><%= album.year ? album.year : '' %></h1>
 		<h6>Read more on <a href="<%= album.uri %>">Discogs</a></h6>
 	</div>
+
 	<!-- Button to add/remove am album to/from our collection -->
 	<% if (favoritedBy.some(u => {return u.email === user.email})) { %>
 	<form action="/albums/<%= album.id %>/collection?_method=DELETE" method="POST">
@@ -26,6 +27,7 @@
 		<button class="btn btn-lg"><%= favoritedBy.some(u => {return u.email === user.email}) ? "Remove from Collection" : "Add to Collection" %></button>
 	</form>
 	<br>
+
 <!-- ICEBOX: Everything that comes up below is connected to the "masters" .get API function. In the future, with more time, I want to be able to render the options for "Artists", "Releases", and "Labels" requests; check each Postman link via Discogs API notation for future reference. -->
 <!-- ICEBOX Get album covers to show up too (different API gets)-->
 <p>
@@ -34,10 +36,10 @@
 		<b>Style</b> <h6><%= album.styles ? album.styles.toLocaleString().split(',').join(', ') : 'None Provided' %></h6>
 		<b>Liner Notes</b> <h6><%= album.notes ? album.notes.toLocaleString().split(',').join(', ').replace(/\s*\[.*?\]\s*/g, ' DISCOGS-LINK ') : 'None Provided' %></h6>
 	</div>
-	</p>
+</p>
 
 	<!-- Returning tracklist-->
-	<u><b>Tracklist: prformers and videos provided when possible</b></u><br>
+	<u><b>Vinyl Tracklist: prformers and videos provided when possible</b></u><br>
 		<% album.tracklist.forEach(t => { %>
 			<div>
 				<p>
