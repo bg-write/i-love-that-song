@@ -34,12 +34,12 @@
 	<div>
 		<b>Genre</b> <h6><%= album.genres ? album.genres.toLocaleString().split(',').join(', ') : 'None Provided' %></h6>
 		<b>Style</b> <h6><%= album.styles ? album.styles.toLocaleString().split(',').join(', ') : 'None Provided' %></h6>
-		<b>Liner Notes</b> <h6><%= album.notes ? album.notes.toLocaleString().split(',').join(', ').replace(/\s*\[.*?\]\s*/g, ' DISCOGS-LINK ') : 'None Provided' %></h6>
+		<b>Liner Notes: Find all "DISCOGS-LINK"s on <a href="<%= album.uri %>">Discogs</a></b> <h6><%= album.notes ? album.notes.toLocaleString().split(',').join(', ').replace(/\s*\[.*?\]\s*/g, ' DISCOGS-LINK ') : 'None Provided' %></h6>
 	</div>
 </p>
 
 	<!-- Returning tracklist-->
-	<u><b>Vinyl Tracklisting: performers, credits, and videos provided when provided</b></u><br>
+	<b>Vinyl Tracklisting: Performers, credits, and videos provided when available</b><br>
 		<% album.tracklist.forEach(t => { %>
 			<div>
 				<p>
