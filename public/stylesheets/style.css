@@ -4,7 +4,7 @@ Font: Amatic SC (header), monospace, black
 Colors (and alt):
 --teal
 --#ffc45f (golden color)
---#FF745F (header salmon-like color)
+--#FF745F (salmon-like color)
 --white
 */
 
@@ -272,4 +272,8 @@ body {
 	font-size: x-large;
 	padding-bottom: 1rem;
 	text-align: center;
+}
+
+#helpLink {
+	color: white;
 }
