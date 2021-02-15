@@ -5,17 +5,14 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 		<script defer src="/javascripts/scripts.js"></script>
-		<!-- Bootstrap -->
 		<link
 			rel="stylesheet"
 			href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
 			integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
 			crossorigin="anonymous"
 		/>
-		<!-- Google Fonts -->
 		<link rel="preconnect" href="https://fonts.gstatic.com">
 		<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
-		<!-- My CSS -->
 		<link rel="stylesheet" href="/stylesheets/style.css" />
 		<title><%= title %></title>
 	</head>
@@ -37,7 +34,6 @@
 		<nav class="flex-container" id="navbar">
 			<div>
 				<ul>
-					<!-- When the user is logged in-->
 					<% if (user) { %>
 					<li class="nav-item">
 						<a class="nav-link" href="/albums/new">FIND ALBUM</a>
@@ -54,7 +50,6 @@
 					<li class="nav-item">
 						<a class="nav-link" href="/auth/logout">LOG OUT</a>
 					</li>
-					<!-- When user is logged out-->
 					<% } else { %>
 					<li class="nav-item" id="signIn">
 						<a class="nav-link" href="/auth/google">LOGIN WITH GOOGLE</a>

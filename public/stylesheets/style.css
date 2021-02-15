@@ -1,13 +1,3 @@
-/*---- BG STYLE GUIDE: "I LOVE THAT SONG" ----*/
-/*
-Font: Amatic SC (header), monospace, black
-Colors (and alt):
---teal
---#ffc45f (golden color)
---#FF745F (salmon-like color)
---white
-*/
-
 html {
 	box-sizing: border-box;
 	height: 100vh;
@@ -25,7 +15,6 @@ html {
 }
 
 body {
-	/* Everything you see in the background! */
 	font: 1rem monospace, 'Amatic SC', 'Lucida Grande', Helvetica, Arial,
 		sans-serif;
 	background-color: teal;
@@ -43,12 +32,10 @@ body {
 
 /*---------------------- Classes (.) -------------------*/
 .nav-item {
-	/* BOOTSTRAP The actual buttons! */
 	padding: 0.1rem;
 }
 
 .nav-link {
-	/* BOOTSTRAP The space inside the nav buttons, including color and text */
 	background-color: #ffc45f;
 	color: black;
 	font-family: 'Amatic SC', monospace;
@@ -56,28 +43,23 @@ body {
 }
 
 .card {
-	/* BOOTSTRAP card used for albums and collection; this gives the actual shape to the card */
 	background-color: white;
 }
 
 .card-body {
-	/* BOOTSTRAP edit the actual content in the card */
 	border: solid;
 }
 
 .card-title {
-	/* BOOTSTRAP The atual copy in the card */
 	color: black;
 }
 
 .btn-lg {
-	/* BOOTSTRAP edit the content inside the button */
 	color: black;
 	background-color: #ffc45f;
 }
 
 .btn-lg:hover {
-	/* BOOTSTRAP edit what happens when I hover over the button */
 	background-color: #ff745f;
 	text-decoration: none;
 	color: white;
