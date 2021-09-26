@@ -1,12 +1,12 @@
 # I Love That Song
 
-The app helping music journalists organize the music they need for research. Inspired by [Discogs](https://www.discogs.com/), this full-CRUD app pulls from its API and returns data on every album available in its database. "I Love That Song" was created as my General Assembly Unit 2 Project, building in one week a full-stack application from scratch using Node, Express, MongoDD, and Mongoose. (See icebox below for new features currently in development.)
+The app helping music journalists organize the music they need for research. This full-stack, full-CRUD database pulls from the [Discogs](https://www.discogs.com/) API and returns YouTube streaming links, genre and style descriptions, liner notes, tracklistings, and more data on every album available through Discogs. "I Love That Song" was built with Node, Express, MongoDD, and Mongoose.
 
 ## Getting Started
 
 Deploy the app: https://i-love-that-song.herokuapp.com/
 
-Link to original Trello board: https://trello.com/b/ELs21E3z
+Run local (in your terminal): "> npm start"
 
 ## Screenshots
 
@@ -30,14 +30,6 @@ Link to original Trello board: https://trello.com/b/ELs21E3z
 - The main Mongoose model revolves around an album schema matching every available API key and its various values.
 - Favorite EJS template: The albums's show.ejs contains a For Each statement slicing an album's given YouTube IDs and converting them into iframe videos, while also not returning an error if an album page does not contain any videos.
 - Albums controller contains several functions including: newAlbum, search, show, addToListenList and removeFromListenList (in development), addToCollection and removeFromCollection, and index.
-
-## Key Learnings/Takeaways
-
-- Biggest challenge: Spending a lot of time studying the API and planning out everything, only to pivot and change everything once I started playing with and using the API. Make a plan, but be ready to be flexible!
-- I tried creating something complex and then had to turn it into something simple. Going forward, I want to first build something simple, and then add to it.
-- Making DRY code is so vital, and something I want to pay closer attention to when edting and styling many different moving parts at once. Never understimate a well-placed button class.
-- In order to fully utulize the API and make my search and results more dynamic and detailed, I am studying how to make more complex JS get requests and promises.
-
 ## Technologies Used
 
 * Node
@@ -46,6 +38,7 @@ Link to original Trello board: https://trello.com/b/ELs21E3z
 * Mongoose
 * Trello
 * JavaScript  
+* EJS Templates
 * HTML  
 * CSS  
 * Postman  
@@ -55,13 +48,12 @@ Link to original Trello board: https://trello.com/b/ELs21E3z
 * Git  
 * Mac Terminal  
 * Visual Studio Code  
-* Google Chrome DevTools (and, like, just Google)  
-* Bootstap  
+* Google Chrome DevTools
+* Google 
+* Bootstrap  
 * Coffee  
 * Naps  
-* Breaks  
-* Calling my mom  
-* Decent nights' sleep 
+* Breaks   
 
 ## Next Steps (Icebox)
 
@@ -73,5 +65,3 @@ Link to original Trello board: https://trello.com/b/ELs21E3z
 - Allow users to write, delete, and update reviews on specific albums on the album details page.
 - Expand users interaction with abilities to follow/unfollow other writers and see their reviews and saved albums.
 - Install organization options for album collection beyond most recently saved albums appearing at the bottom of the list.
-
--bg
